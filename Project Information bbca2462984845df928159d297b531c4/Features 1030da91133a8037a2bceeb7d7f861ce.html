@@ -1,0 +1,879 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Features</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1030da91-133a-8037-a2bc-eeb7d7f861ce" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/first-aid-kit_orange.svg"/></div><h1 class="page-title">Features</h1><p class="page-description"></p></header><div class="page-body"><p id="1030da91-133a-8048-8d4d-da3b8ddba4a9" class="">Documentation on features developed up until milestone 2</p><ul id="1030da91-133a-804f-89a6-dcab1067500c" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Alerts API Endpoint</span></strong></summary><h3 id="700d6015-1725-406b-9e3d-d51fdbec8266" class=""><strong>Feature Overview</strong></h3><p id="8b2f5d9a-98d9-46bf-a25f-58f7416d00a3" class="">The Alerts API is designed to inform users about various campus safety alerts. It allows authorized personnel to create, fetch, and update alerts in real-time, notifying students and staff of emergencies or important safety information. Alerts include details like message content, status (active, closed), affected areas, and timestamps.</p><h3 id="1030da91-133a-80df-a5fd-d7d94fc2deed" class=""><strong>Feature Specifications</strong></h3><ul id="1030da91-133a-8031-b41e-e42e334f37af" class="bulleted-list"><li style="list-style-type:disc"><strong>API Base URL</strong>: <code>/alerts</code></li></ul><h3 id="1030da91-133a-8010-862f-c3a127c5e546" class=""><strong>Main Components</strong>:</h3><ul id="3afd934a-3ac2-48fc-94d1-44dc6beb493f" class="bulleted-list"><li style="list-style-type:disc"><strong>Insert Alerts</strong>: Allows administrators to create new safety alerts.</li></ul><ul id="1030da91-133a-80e3-952d-c4f385d5eba5" class="bulleted-list"><li style="list-style-type:disc"><strong>Fetch Alerts</strong>: Retrieves all the current alerts.</li></ul><ul id="c89363c1-6d60-431e-8ab0-cbe5dd4f5e2b" class="bulleted-list"><li style="list-style-type:disc"><strong>Update Alert Status</strong>: Enables updating the status of an existing alert.</li></ul><h3 id="58f0d5dc-ceaa-4e1a-aeaf-923ad40c86b8" class=""><strong>Endpoints Documentation</strong></h3><h3 id="1030da91-133a-80f9-bdab-c868ca6ba2e9" class=""><strong>a. Insert New Alert</strong></h3><ul id="1030da91-133a-8050-8daf-dbfafff61c0f" class="bulleted-list"><li style="list-style-type:disc"><strong>Method</strong>: <code>POST</code></li></ul><ul id="1030da91-133a-80db-b6f0-dd441ea54334" class="bulleted-list"><li style="list-style-type:disc"><strong>URL</strong>: <code>/alerts/alerts</code></li></ul><ul id="1030da91-133a-80cd-871f-d73ed2b5924a" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: Inserts a new alert into the database.</li></ul><ul id="1030da91-133a-807a-8401-ed5653232f72" class="bulleted-list"><li style="list-style-type:disc"><strong>Parameters</strong>:<ul id="1030da91-133a-809b-8aeb-c22aec22cedf" class="bulleted-list"><li style="list-style-type:circle"><code>message</code>: (String) The content of the alert.</li></ul><ul id="1030da91-133a-80e3-a2c7-eb4e8c43d63b" class="bulleted-list"><li style="list-style-type:circle"><code>status</code>: (String) The current status of the alert (e.g., &#x27;active&#x27;, &#x27;closed&#x27;).</li></ul><ul id="1030da91-133a-8026-8771-fa1459c4155e" class="bulleted-list"><li style="list-style-type:circle"><code>affected_area</code>: (String) The geographical area affected by the alert.</li></ul><ul id="31702a3a-0796-4aa7-ac1c-c8e03930c0bb" class="bulleted-list"><li style="list-style-type:circle"><code>timestamp</code>: (Datetime) Optional. The time when the alert was created. Defaults to the current time if not provided.</li></ul></li></ul><h3 id="1030da91-133a-802c-8f0c-e2b234b6c64a" class=""><strong>b. Fetch All Alerts</strong></h3><ul id="1030da91-133a-8008-8ed9-cd5ee938ba11" class="bulleted-list"><li style="list-style-type:disc"><strong>Method</strong>: <code>GET</code></li></ul><ul id="1030da91-133a-8016-ab0a-db770915cde8" class="bulleted-list"><li style="list-style-type:disc"><strong>URL</strong>: <code>/alerts/alerts</code></li></ul><ul id="1030da91-133a-80ec-bb0f-e375168f7656" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: Retrieves all the alerts from the database.</li></ul><ul id="1030da91-133a-80fc-811f-f5054fd73c1c" class="bulleted-list"><li style="list-style-type:disc"><strong>Response</strong>: A list of all the alerts, including message, status, affected area, and timestamp.</li></ul><h3 id="1030da91-133a-807c-b1f9-d40ccbb863f1" class="">Example Response:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8068-b7c0-e30a6188ba73" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">[
+  {
+    &quot;id&quot;: 1,
+    &quot;message&quot;: &quot;Fire at Convocation Dining Hall&quot;,
+    &quot;status&quot;: &quot;active&quot;,
+    &quot;affected_area&quot;: &quot;West Campus&quot;,
+    &quot;timestamp&quot;: &quot;2024-09-16T12:00:00Z&quot;
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;message&quot;: &quot;Heavy Flooding at OLS Builing&quot;,
+    &quot;status&quot;: &quot;closed&quot;,
+    &quot;affected_area&quot;: &quot;East Campus&quot;,
+    &quot;timestamp&quot;: &quot;2024-09-14T10:00:00Z&quot;
+  }
+]
+
+</code></pre><h3 id="1030da91-133a-80b2-8ad0-d2ff9c16c00a" class=""><strong>c. Update Alert Status</strong></h3><ul id="1030da91-133a-809f-a304-e26471ad1f60" class="bulleted-list"><li style="list-style-type:disc"><strong>Method</strong>: <code>PUT</code></li></ul><ul id="1030da91-133a-80c5-9c3e-c515c951af92" class="bulleted-list"><li style="list-style-type:disc"><strong>URL</strong>: <code>/alerts/alerts/:id</code></li></ul><ul id="3013cb4d-0139-420a-90ff-9e7401bc2c29" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: Updates the status of an existing alert based on its <code>id</code>.</li></ul><ul id="1030da91-133a-80ae-aeed-cec272fd2659" class="bulleted-list"><li style="list-style-type:disc"><strong>Parameters</strong>:<ul id="1030da91-133a-806f-89a7-f74893599faa" class="bulleted-list"><li style="list-style-type:circle"><code>status</code>: (String) The new status of the alert (e.g., &#x27;active&#x27;, &#x27;closed&#x27;).</li></ul></li></ul><h3 id="1030da91-133a-807e-a018-d0adde194fbe" class=""><strong>Data Models</strong></h3><ul id="a5949350-6eeb-44c3-9bf1-88796fb990f0" class="bulleted-list"><li style="list-style-type:disc"><strong>Table Name</strong>: <code>safetyalerts</code></li></ul><ul id="1030da91-133a-809d-aa9e-d3e32c444c93" class="bulleted-list"><li style="list-style-type:disc"><strong>Fields</strong>:<ul id="bd7f9627-12f4-465e-9db6-2b3ce67b1925" class="bulleted-list"><li style="list-style-type:circle"><code>id</code>: (INT) Primary key, auto-incremented.</li></ul><ul id="1030da91-133a-80c1-bd6a-c6f0fdc219c2" class="bulleted-list"><li style="list-style-type:circle"><code>message</code>: (VARCHAR) The content of the alert.</li></ul><ul id="1030da91-133a-80c4-8db9-e34b2bd38780" class="bulleted-list"><li style="list-style-type:circle"><code>status</code>: (VARCHAR) The status of the alert (&#x27;active&#x27;, &#x27;closed&#x27;, etc.).</li></ul><ul id="1030da91-133a-80ea-9b66-d05b92fcbae7" class="bulleted-list"><li style="list-style-type:circle"><code>affected_area</code>: (VARCHAR) The area impacted by the alert.</li></ul><ul id="1030da91-133a-80ba-93eb-e9ce006d2a95" class="bulleted-list"><li style="list-style-type:circle"><code>timestamp</code>: (DATETIME) The date and time the alert was created.</li></ul></li></ul><h3 id="1030da91-133a-8010-91a4-f2812eb574f7" class=""><strong>Security Considerations</strong></h3><ul id="1030da91-133a-8088-8b09-db48b16e8609" class="bulleted-list"><li style="list-style-type:disc"><strong>SSL</strong>: The API supports SSL connections for secure communication. SSL configuration is controlled by the environment variable <code>DB_SSL</code>.</li></ul><ul id="1030da91-133a-809c-989b-c1622d330c93" class="bulleted-list"><li style="list-style-type:disc"><strong>Authorization</strong>: Ensure only authorized users (e.g., campus security personnel) have permission to insert and update alerts.</li></ul><h3 id="1030da91-133a-8059-9e78-dc9801bd24e7" class=""><strong>Environment Variables</strong></h3><p id="1030da91-133a-80f8-89c1-f061854858d9" class="">The API uses environment variables for database configuration:</p><ul id="1030da91-133a-803f-b254-fc2ed40a85e6" class="bulleted-list"><li style="list-style-type:disc"><code>MYSQL_HOST</code>: The host for the MySQL database.</li></ul><ul id="1030da91-133a-8081-9c1d-e01c3d376c4d" class="bulleted-list"><li style="list-style-type:disc"><code>MYSQL_USER</code>: The username for the MySQL database.</li></ul><ul id="1030da91-133a-8056-ad99-cb696570581f" class="bulleted-list"><li style="list-style-type:disc"><code>MYSQL_PASSWORD</code>: The password for the MySQL database.</li></ul><ul id="1030da91-133a-800c-aa8f-e8dfe4f5fe7a" class="bulleted-list"><li style="list-style-type:disc"><code>MYSQL_DATABASE</code>: The name of the MySQL database.</li></ul><ul id="1030da91-133a-80d0-b7f4-cc07fa07d9fc" class="bulleted-list"><li style="list-style-type:disc"><code>DB_PORT</code>: The port for MySQL.</li></ul><ul id="1030da91-133a-8078-87c6-df88dd4a4dcf" class="bulleted-list"><li style="list-style-type:disc"><code>DB_SSL</code>: Whether SSL is enabled for the database connection.</li></ul></details></li></ul><ul id="1030da91-133a-80f3-baf7-e65574478d49" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Login API endpoint</span></strong></summary><hr id="1030da91-133a-804a-a8be-ebcbc54ce624"/><h3 id="1030da91-133a-8056-b853-d54b07b66796" class="">Feature overview</h3><p id="1030da91-133a-80cc-aaba-f7deaebffd6f" class="">The <code>/login</code> endpoint is used to authenticate users by validating their credentials (username and password). Upon receiving a POST request with the required user credentials, the endpoint checks if the provided username and password are valid. If the credentials are valid, a success response is returned. Otherwise, the endpoint responds with an appropriate error message.</p><hr id="1030da91-133a-8023-bf74-c8325edca0b4"/><h3 id="1030da91-133a-801b-bbab-e6df5abaada9" class=""><strong>Endpoint Details</strong></h3><ul id="1030da91-133a-80cd-a407-fe8b849cd01e" class="bulleted-list"><li style="list-style-type:disc"><strong>HTTP Method</strong>: <code>POST</code></li></ul><ul id="1030da91-133a-80c1-978a-e869d9a4bea0" class="bulleted-list"><li style="list-style-type:disc"><strong>URL</strong>: <code>/login</code></li></ul><ul id="1030da91-133a-80a5-b3e2-fdad6c9bfa54" class="bulleted-list"><li style="list-style-type:disc"><strong>Authentication</strong>: No authentication required for accessing this endpoint, as it is used to obtain authentication by verifying user credentials.</li></ul><ul id="1030da91-133a-802c-b28c-e3f889419b15" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: Validates user login credentials (username and password) against stored database values and returns a response based on the validity of the credentials.</li></ul><hr id="843330b5-769f-430d-9e77-165a070d018f"/><h3 id="1030da91-133a-8084-917d-d76a96ab19a8" class=""><strong>Request Format</strong></h3><h3 id="1030da91-133a-8080-9e4d-dae4686a4197" class=""><strong>Request URL</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-807e-a1e2-df7b5fc1fbab" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">POST /login
+</code></pre><h3 id="6ece14e3-7fe4-4212-9f34-54fd35f83a4b" class=""><strong>Request Headers</strong></h3><ul id="1030da91-133a-8018-90a2-f3acc0cbc380" class="bulleted-list"><li style="list-style-type:disc"><code>Content-Type: application/json</code> – The request body must be in JSON format.</li></ul><h3 id="1030da91-133a-80ed-9d34-d52c294c71af" class=""><strong>Request Body</strong></h3><p id="1030da91-133a-8093-b231-fe35dff0e98c" class="">The body of the request should be a JSON object containing the following fields:</p><table id="1030da91-133a-806a-b230-c8a3b8774011" class="simple-table"><tbody><tr id="1030da91-133a-800c-93b9-f3f851304216"><td id="X}&gt;\" class="">Field</td><td id="|Fi_" class="">Type</td><td id="`=^q" class="">Required</td><td id="aTAW" class="">Description</td></tr><tr id="1030da91-133a-806e-8b78-c4cf736435b3"><td id="X}&gt;\" class=""><code>username</code></td><td id="|Fi_" class="">String</td><td id="`=^q" class="">Yes</td><td id="aTAW" class="">The username of the user attempting to log in.</td></tr><tr id="5abbe79f-16c6-4acf-92e7-cd688c3e2d99"><td id="X}&gt;\" class=""><code>password</code></td><td id="|Fi_" class="">String</td><td id="`=^q" class="">Yes</td><td id="aTAW" class="">The password associated with the username.</td></tr></tbody></table><h3 id="1030da91-133a-80df-978d-f8263549f384" class=""><strong>Sample Request Body</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-806f-a43e-de9bb8008c70" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;username&quot;: &quot;john_doe&quot;,
+  &quot;password&quot;: &quot;mypassword123&quot;
+}
+</code></pre><hr id="1030da91-133a-8063-a54e-e4dc153c4ac7"/><h3 id="1030da91-133a-8040-a3a5-e6f93609b2f8" class=""><strong>Response Format</strong></h3><p id="1030da91-133a-80cc-8dc9-d3bec4fb42f9" class="">The server returns a response based on the success or failure of the authentication attempt. The responses vary based on the result of the login validation.</p><h3 id="1030da91-133a-800d-bed8-ca5662ea3cac" class=""><strong>Successful Response</strong></h3><p id="1030da91-133a-8019-9e03-e74ef16a89e2" class="">When the provided <code>username</code> and <code>password</code> match the records in the database, the endpoint responds with a 200 HTTP status code and a message indicating successful login.</p><ul id="1030da91-133a-8056-9b4f-efaec6930a01" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code</strong>: <code>200 OK</code></li></ul><ul id="2fab60f4-710c-425f-b66b-2e62916bdf5b" class="bulleted-list"><li style="list-style-type:disc"><strong>Response Body</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-80e2-accf-d70d0b5ae2f2" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;message&quot;: &quot;Login successful&quot;
+}
+</code></pre></li></ul><h3 id="1030da91-133a-8000-bce6-c1d67aa6000a" class=""><strong>Unsuccessful Response - Invalid Credentials</strong></h3><p id="1030da91-133a-80c0-891e-f042c9df7e37" class="">If the username or password is incorrect, the endpoint responds with a 401 HTTP status code, indicating the authentication failure due to invalid credentials.</p><ul id="1030da91-133a-803d-b0fc-c58a969ebd9b" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code</strong>: <code>401 Unauthorized</code></li></ul><ul id="1030da91-133a-8027-9e0c-ed9edfe596dc" class="bulleted-list"><li style="list-style-type:disc"><strong>Response Body</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9e300da0-94f9-4786-a73e-77ff1cb72887" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;message&quot;: &quot;Invalid credentials&quot;
+}
+</code></pre></li></ul><h3 id="1030da91-133a-80a0-9e00-fb314441e7e0" class=""><strong>Error Response - Server Error</strong></h3><p id="1030da91-133a-8007-b616-da78155a4f09" class="">If there is an error on the server side (e.g., issues with database access or unexpected exceptions), the endpoint responds with a 500 HTTP status code, and an error message describing the issue.</p><ul id="1030da91-133a-80e6-bb22-c198742f1f3a" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code</strong>: <code>500 Internal Server Error</code></li></ul><ul id="1030da91-133a-80b2-bc45-f47da75fbd5e" class="bulleted-list"><li style="list-style-type:disc"><strong>Response Body</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-80c6-9e3c-fb14381ef544" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;error&quot;: &quot;Server error: &lt;error_message&gt;&quot;
+}
+</code></pre></li></ul><h3 id="1030da91-133a-8011-b654-e0a243a65df6" class="">Example Error:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f5270bf5-cbe0-424d-9379-243134b0b369" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;error&quot;: &quot;Server error: Cannot connect to the database&quot;
+}
+</code></pre><hr id="1030da91-133a-8092-9cb0-c1ed00b23abc"/><h3 id="48f0704d-1010-4608-b564-e39ef21224c7" class=""><strong>Feature Overview</strong></h3><p id="4f33c94d-4a03-4078-87b2-f50fc6949c7f" class="">The <code>/login</code> endpoint performs the following actions:</p><ol type="1" id="1030da91-133a-8040-b130-fa5811189957" class="numbered-list" start="1"><li><strong>Extracting Credentials</strong>:<ul id="1030da91-133a-80ac-89bf-fef1048bda91" class="bulleted-list"><li style="list-style-type:disc">The endpoint expects the request body to contain the <code>username</code> and <code>password</code>.</li></ul><ul id="1030da91-133a-800c-9aec-e161717ded42" class="bulleted-list"><li style="list-style-type:disc">These are extracted from the body for further processing.</li></ul></li></ol><ol type="1" id="1030da91-133a-80fa-8295-ced8cc72f4eb" class="numbered-list" start="2"><li><strong>Login Validation</strong>:<ul id="1030da91-133a-807c-b420-c95efcba1f64" class="bulleted-list"><li style="list-style-type:disc">The endpoint communicates with the <code>LoginController</code> to validate the user&#x27;s login credentials by calling <code>validateUserLogin(username, password)</code>.</li></ul><ul id="1030da91-133a-803b-a775-c98e7be82600" class="bulleted-list"><li style="list-style-type:disc">The <code>LoginController</code> function checks the database for a matching username and password.</li></ul></li></ol><ol type="1" id="1030da91-133a-8006-882e-fdb1be25e67d" class="numbered-list" start="3"><li><strong>Response Generation</strong>:<ul id="1030da91-133a-8035-83b6-dbc18cc8e488" class="bulleted-list"><li style="list-style-type:disc">If the credentials are valid, the endpoint returns a 200 status code and a success message.</li></ul><ul id="1030da91-133a-8054-bb74-d06d3eb62f1c" class="bulleted-list"><li style="list-style-type:disc">If the credentials are invalid, it returns a 401 status code and an error message.</li></ul><ul id="1030da91-133a-80a2-91d7-de29463800f5" class="bulleted-list"><li style="list-style-type:disc">If any server-related issue occurs (e.g., database connection failure), a 500 status code with a detailed error message is returned.</li></ul></li></ol><hr id="1030da91-133a-8031-9515-dbd520f7d2b5"/><h3 id="1030da91-133a-8032-a135-f8c72b0103f2" class=""><strong>Error Handling</strong></h3><p id="1030da91-133a-80cf-b3d3-d01839361c5a" class="">The endpoint is designed to handle potential errors gracefully:</p><ul id="1030da91-133a-80a5-98d5-e32670128f61" class="bulleted-list"><li style="list-style-type:disc"><strong>Invalid Credentials</strong>: If the credentials are incorrect, the system responds with a clear <code>401 Unauthorized</code> response.</li></ul><ul id="1030da91-133a-80b6-b8ca-e0fd1cd40959" class="bulleted-list"><li style="list-style-type:disc"><strong>Server Error</strong>: If an unexpected error occurs during the request processing (e.g., database failure), the endpoint returns a <code>500 Internal Server Error</code> along with a descriptive message to help diagnose the issue.</li></ul><hr id="1030da91-133a-80bc-b807-d9127d455b65"/><h3 id="1030da91-133a-8095-a717-ea7da377248f" class=""><strong>Database Schema</strong></h3><p id="1030da91-133a-80d3-90cf-fd0068aa327c" class="">The <code>LoginController</code> interacts with a database that contains two columns for user login information:</p><ol type="1" id="1030da91-133a-805a-8012-e93982728c17" class="numbered-list" start="1"><li><strong>Username</strong> (<code>username</code>): The unique identifier for each user.</li></ol><ol type="1" id="74c9c3c0-0148-44ee-99c4-8757c4da7382" class="numbered-list" start="2"><li><strong>Password</strong> (<code>password</code>): The password associated with the username.</li></ol><h3 id="1030da91-133a-8038-964c-ec188d4b0585" class=""><strong>Sample Table Schema:</strong></h3><table id="1030da91-133a-8062-8431-ff9f2f2dd873" class="simple-table"><tbody><tr id="54dd9c9f-68f9-4cd7-96a6-8b9a1df033c7"><td id="uyOn" class="">Column Name</td><td id="W:{[" class="">Data Type</td><td id="L?=K" class="">Constraints</td></tr><tr id="1030da91-133a-8065-ae07-f481d2119967"><td id="uyOn" class=""><code>username</code></td><td id="W:{[" class="">VARCHAR</td><td id="L?=K" class="">PRIMARY KEY</td></tr><tr id="1030da91-133a-80a5-8057-eec077ff4599"><td id="uyOn" class=""><code>password</code></td><td id="W:{[" class="">VARCHAR</td><td id="L?=K" class="">NOT NULL</td></tr></tbody></table><hr id="1030da91-133a-8095-a8de-df12a9baf032"/><h3 id="1030da91-133a-8017-ba03-e4b1506513de" class=""><strong>Authentication Logic</strong></h3><p id="1030da91-133a-80c1-a772-f8cc0867dfe3" class="">The <code>LoginController</code> uses the following logic to validate the user&#x27;s credentials:</p><ol type="1" id="54556c34-cc42-4bf9-b20f-45b8a5425940" class="numbered-list" start="1"><li>The username and password are provided in the POST request.</li></ol><ol type="1" id="1030da91-133a-80ed-a1af-e239fc7ec7f2" class="numbered-list" start="2"><li>The <code>LoginController</code> queries the database to check if the provided username exists.</li></ol><ol type="1" id="45ae907a-9935-4c8e-996e-6d31066e7076" class="numbered-list" start="3"><li>If the username exists, the controller compares the stored password with the provided password.</li></ol><ol type="1" id="1030da91-133a-8097-9657-dec59693f9c1" class="numbered-list" start="4"><li>If both match, the user is considered authenticated, and a success message is returned.</li></ol><ol type="1" id="1030da91-133a-80a1-853f-cb6c5ed4d731" class="numbered-list" start="5"><li>If they do not match, the system returns an unauthorized message.</li></ol><hr id="5a0ba8b2-4c16-4cea-b7c1-05a5d54169c8"/><h3 id="1030da91-133a-8097-a760-fa0c25b1f59d" class=""><strong>Possible Enhancements</strong></h3><ul id="1030da91-133a-807f-ac0d-ca72ba1f65b9" class="bulleted-list"><li style="list-style-type:disc"><strong>Password Hashing</strong>: For security, it is recommended to hash the passwords in the database and compare hashed versions during login attempts.</li></ul><ul id="1030da91-133a-8046-b2c9-eb9a458aad02" class="bulleted-list"><li style="list-style-type:disc"><strong>Rate Limiting</strong>: To prevent brute-force attacks, consider adding rate-limiting middleware that limits the number of login attempts within a certain time frame.</li></ul><hr id="de437aa1-cd91-4e50-b3d4-906abe8b8786"/><h3 id="1030da91-133a-8000-acf4-c2f73efd1b30" class=""><strong>Testing the Endpoint</strong></h3><ul id="8ee922dc-a486-45cf-9820-8de90522da45" class="bulleted-list"><li style="list-style-type:disc">Ensure that the server is running and that the <code>/login/login</code> endpoint is accessible.</li></ul><ul id="510a00ea-af44-4dbc-ac14-147cbf6ad7c0" class="bulleted-list"><li style="list-style-type:disc">Use a tool like Postman or Curl to send a <code>POST</code> request with a valid/invalid username and password to verify the responses</li></ul><hr id="1030da91-133a-8014-a737-f77d99b467ee"/></details></li></ul><ul id="1030da91-133a-807d-a414-eb472824ab45" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Resources API endpoint</span></strong></summary><h3 id="1030da91-133a-8054-b1ce-f60c8116bc25" class="">Feature overview</h3><p id="1030da91-133a-80cc-87dc-ec90829f5ee8" class="">The <code>SafetyResources.js</code> file defines the routes for the <strong>Safety Resources</strong> page of the <strong>Campus Safety App</strong>. These routes allow users to retrieve safety resources related to various types of safety incidents such as medical emergencies, weather issues, fire incidents, and more. The routes are connected to a controller that interacts with the MySQL database to fetch the necessary data.</p><h3 id="1030da91-133a-806e-ab74-d51cd63e9229" class="">Base Route:</h3><ul id="1030da91-133a-8002-a294-c1d0a4a8a272" class="bulleted-list"><li style="list-style-type:disc"><strong>Base Route:</strong> <code>/resources</code></li></ul><hr id="1030da91-133a-80c1-87ee-f117cbdb486d"/><h3 id="1030da91-133a-8077-8f77-ff1f929b90d4" class=""><strong>1. GET /resources/safety-resources</strong></h3><h3 id="1030da91-133a-8058-8bd0-d29fdb70a04f" class=""><strong>Description:</strong></h3><p id="1030da91-133a-8022-a0a1-dc4e312fb232" class="">This route fetches all available safety resources from the database.</p><h3 id="1030da91-133a-80c4-b048-f349b5a4c53e" class=""><strong>Request:</strong></h3><ul id="b60ef7c1-dce2-41f2-be8e-ce0b59eeff16" class="bulleted-list"><li style="list-style-type:disc"><strong>Method:</strong> GET</li></ul><ul id="96aa7e00-de31-4322-b9bd-c1a766aeb319" class="bulleted-list"><li style="list-style-type:disc"><strong>URL:</strong> <code>/resources/safety-resources</code></li></ul><h3 id="1030da91-133a-80c4-b82e-c9e5efde9af8" class=""><strong>Response:</strong></h3><ul id="1030da91-133a-80ce-bb11-dd54f817c855" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code:</strong> <code>200 OK</code> if the data retrieval is successful.</li></ul><ul id="1030da91-133a-80dc-a799-e11dc99a6545" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code:</strong> <code>500 Internal Server Error</code> if there&#x27;s an error retrieving the data.</li></ul><h3 id="1030da91-133a-8000-a3b9-fabe39911ba6" class=""><strong>Response Body (200):</strong></h3><p id="1030da91-133a-80aa-ad5c-dfbc0c4b281a" class="">A JSON array of safety resources. Each safety resource object contains:</p><ul id="1030da91-133a-8034-8b86-f96e540d573b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code>: (Integer) Unique identifier of the resource.</li></ul><ul id="1030da91-133a-809a-83b3-d66acf8765bd" class="bulleted-list"><li style="list-style-type:disc"><code><strong>title</strong></code>: (String) Title of the safety resource.</li></ul><ul id="25520e63-bcc1-46e9-b106-e413708dadd1" class="bulleted-list"><li style="list-style-type:disc"><code><strong>description</strong></code>: (String) A detailed description of the safety resource.</li></ul><ul id="1030da91-133a-806b-9a48-c690fb313377" class="bulleted-list"><li style="list-style-type:disc"><code><strong>link</strong></code>: (String) A link providing more information or resources.</li></ul><ul id="1030da91-133a-80d2-b145-d1e68689d25b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>type</strong></code>: (String) General category of the safety resource (e.g., &quot;fire incident&quot;).</li></ul><ul id="1030da91-133a-807d-8433-c4c002af88aa" class="bulleted-list"><li style="list-style-type:disc"><code><strong>subtype</strong></code>: (String, optional) A more specific category if available (e.g., &quot;wildfire&quot;).</li></ul><h3 id="1030da91-133a-803e-a8ab-e3a9c6aa1444" class="">Example Response (200):</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8059-9207-eb24cc2e95eb" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">[
+  {
+    &quot;id&quot;: 1,
+    &quot;title&quot;: &quot;Safety Resource 1&quot;,
+    &quot;description&quot;: &quot;This is a description of Safety Resource 1.&quot;,
+    &quot;link&quot;: &quot;&lt;https://www.wits.ac.za/safety/fire-emergency&gt;&quot;,
+    &quot;type&quot;: &quot;fire incident&quot;,
+    &quot;subtype&quot;: &quot;wildfire&quot;
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;title&quot;: &quot;Safety Resource 2&quot;,
+    &quot;description&quot;: &quot;This is a description of Safety Resource 2.&quot;,
+    &quot;link&quot;: &quot;&lt;https://www.wits.ac.za/safety/lightning-safety&gt;&quot;,
+    &quot;type&quot;: &quot;weather issue&quot;,
+    &quot;subtype&quot;: &quot;lightning&quot;
+  }
+]
+</code></pre><h3 id="e242cc07-6903-4b76-9544-d31e1ec8e16c" class="">Example Error Response (500):</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8068-b066-f09e858357da" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;message&quot;: &quot;Error message describing what went wrong.&quot;
+}
+</code></pre><h3 id="1030da91-133a-8000-996f-dbc4ad27c887" class=""><strong>Error Handling:</strong></h3><ul id="1030da91-133a-808c-8b23-d9ef7b57f330" class="bulleted-list"><li style="list-style-type:disc">If any error occurs (e.g., database connection failure), the API responds with status <code>500</code> and an error message explaining what went wrong.</li></ul><hr id="1030da91-133a-802a-b315-ead70332a6b8"/><h3 id="1030da91-133a-8049-87f1-c7908646bb7d" class=""><strong>2. GET /resources/safety-resources/:type</strong></h3><h3 id="1030da91-133a-80cc-ae3f-fb2b74ef4462" class=""><strong>Description:</strong></h3><p id="1030da91-133a-804a-a956-fa9cd9a78161" class="">This route fetches all safety resources that match the specified type. For example, it can return resources related to medical emergencies, weather issues, etc.</p><h3 id="8f0ab894-5fde-4ca6-881f-b537110f1276" class=""><strong>Request:</strong></h3><ul id="1030da91-133a-807c-bdab-ce46f91832c1" class="bulleted-list"><li style="list-style-type:disc"><strong>Method:</strong> GET</li></ul><ul id="1030da91-133a-808c-8e41-e19281e9d19d" class="bulleted-list"><li style="list-style-type:disc"><strong>URL:</strong> <code>/resources/safety-resources/:type</code><ul id="1030da91-133a-807d-9beb-d6e1c30a5a83" class="bulleted-list"><li style="list-style-type:circle"><code><strong>type</strong></code>: (String) The type of the safety resource to filter by (e.g., &quot;fire incident&quot;, &quot;medical emergency&quot;).</li></ul></li></ul><h3 id="1030da91-133a-8041-a880-c5b855cc7065" class=""><strong>Parameters:</strong></h3><ul id="1030da91-133a-8012-b40b-d7cd9eec66fa" class="bulleted-list"><li style="list-style-type:disc"><code><strong>type</strong></code> (required): The category of safety resources to be retrieved.</li></ul><h3 id="1030da91-133a-8002-9e23-f5b1008ee97e" class=""><strong>Response:</strong></h3><ul id="1030da91-133a-80d7-ac90-e3626781fee6" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code:</strong> <code>200 OK</code> if data retrieval is successful.</li></ul><ul id="1030da91-133a-807c-9cfb-c4c29e0fdd37" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code:</strong> <code>404 Not Found</code> if no resources match the specified type.</li></ul><ul id="b32a94fe-0810-4736-87e7-547c55b000fb" class="bulleted-list"><li style="list-style-type:disc"><strong>Status Code:</strong> <code>500 Internal Server Error</code> if there&#x27;s an error retrieving the data.</li></ul><h3 id="1030da91-133a-8088-8d65-c1afd4a9c918" class=""><strong>Response Body (200):</strong></h3><p id="1030da91-133a-8054-9d4e-c629d1406999" class="">A JSON array of safety resources filtered by type.</p><h3 id="1030da91-133a-8020-9518-f3fd06ec5ad6" class="">Example Response (200):</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-807d-9e9b-dba1c428221d" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">[
+  {
+    &quot;id&quot;: 1,
+    &quot;title&quot;: &quot;Safety Resource 1&quot;,
+    &quot;description&quot;: &quot;This is a description of Safety Resource 1.&quot;,
+    &quot;link&quot;: &quot;&lt;https://www.wits.ac.za/safety/fire-prevention&gt;&quot;,
+    &quot;type&quot;: &quot;fire incident&quot;,
+    &quot;subtype&quot;: &quot;building fire&quot;
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;title&quot;: &quot;Safety Resource 5&quot;,
+    &quot;description&quot;: &quot;This is a description of Safety Resource 5.&quot;,
+    &quot;link&quot;: &quot;&lt;https://www.wits.ac.za/safety/wildfire-response&gt;&quot;,
+    &quot;type&quot;: &quot;fire incident&quot;,
+    &quot;subtype&quot;: &quot;wildfire&quot;
+  }
+]
+</code></pre><h3 id="1030da91-133a-803f-ab9b-dbccfbbabf7c" class="">Example Error Response (500):</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1aa79e09-c74d-40fd-800d-e2a67df757ff" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;message&quot;: &quot;Server error: Error message explaining what went wrong.&quot;
+}
+</code></pre><h3 id="1030da91-133a-8020-b3ff-f3a7495505bd" class=""><strong>Error Handling:</strong></h3><ul id="1030da91-133a-80c1-9646-dcc769a396fd" class="bulleted-list"><li style="list-style-type:disc">If the resource type is invalid or no matching resources are found, a <code>404 Not Found</code> error is returned.</li></ul><ul id="1030da91-133a-8015-bbea-cac89a37fc18" class="bulleted-list"><li style="list-style-type:disc">In case of server errors or database connection issues, the API responds with a <code>500 Internal Server Error</code>.</li></ul><hr id="1030da91-133a-8066-af48-e1691bf45802"/><h3 id="1030da91-133a-80c7-85cd-fc88f74b17e8" class="">Features and Functionality:</h3><ol type="1" id="5c2a4d64-b917-4951-b479-026942ed2a06" class="numbered-list" start="1"><li><strong>Fetching All Safety Resources:</strong><ul id="1030da91-133a-80fd-951b-c13e1d47d5ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Functionality:</strong> Users can fetch a list of all safety resources available in the system. The response includes a list of resources with attributes like <code>title</code>, <code>description</code>, <code>link</code>, <code>type</code>, and <code>subtype</code>.</li></ul><ul id="1030da91-133a-804d-96cf-f877c5a2f863" class="bulleted-list"><li style="list-style-type:disc"><strong>Controller Method:</strong> <code>getAllSafetyResources()</code></li></ul><ul id="1030da91-133a-80d2-a4aa-cb62d5e64a39" class="bulleted-list"><li style="list-style-type:disc"><strong>Route:</strong> <code>/resources/safety-resources</code></li></ul></li></ol><ol type="1" id="1030da91-133a-80e7-95b5-cf7da5942f03" class="numbered-list" start="2"><li><strong>Fetching Safety Resources by Type:</strong><ul id="1030da91-133a-80b1-a99b-fd359081931a" class="bulleted-list"><li style="list-style-type:disc"><strong>Functionality:</strong> Users can filter safety resources by their type. The API will return all resources that match the requested type.</li></ul><ul id="1030da91-133a-80c5-916d-efd712da8c9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Types Supported:</strong><ul id="7e792b98-6bc6-485a-a7a0-b7ef28e3861c" class="bulleted-list"><li style="list-style-type:circle">Medical emergency</li></ul><ul id="1030da91-133a-802e-984a-e8f1af996c78" class="bulleted-list"><li style="list-style-type:circle">Weather issue</li></ul><ul id="1030da91-133a-80f4-9e6f-e580a3c18490" class="bulleted-list"><li style="list-style-type:circle">Fire incident</li></ul><ul id="1030da91-133a-8022-90fa-dab5de5ca8b7" class="bulleted-list"><li style="list-style-type:circle">Natural disaster</li></ul><ul id="1030da91-133a-80fc-81b9-f33c6b3a6e49" class="bulleted-list"><li style="list-style-type:circle">Security threat</li></ul></li></ul><ul id="61f18273-1e48-4fec-8cd9-a90af514e0fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Controller Method:</strong> <code>getSafetyResourcesByType(type)</code></li></ul><ul id="1030da91-133a-8065-9783-f32731233d25" class="bulleted-list"><li style="list-style-type:disc"><strong>Route:</strong> <code>/resources/safety-resources/:type</code></li></ul></li></ol><ol type="1" id="0d7d7b0f-21cd-4735-9b18-7288918f877d" class="numbered-list" start="3"><li><strong>Error Handling:</strong><ul id="1030da91-133a-809a-bb65-f46201cb53d0" class="bulleted-list"><li style="list-style-type:disc">Robust error handling is implemented to return user-friendly messages in case of any issues, such as database errors or invalid type filters.</li></ul><ul id="1030da91-133a-80f3-b391-ebb36436d28b" class="bulleted-list"><li style="list-style-type:disc">The system logs errors to the server console, making debugging easier.</li></ul></li></ol><ol type="1" id="1030da91-133a-801e-a5dd-d012e079884f" class="numbered-list" start="4"><li><strong>Scalability:</strong><ul id="38013525-1c15-40b1-91a1-6c90a5a2eb3a" class="bulleted-list"><li style="list-style-type:disc">New types and subtypes of resources can easily be added to the system without breaking existing functionality. For instance, additional types for medical emergencies, fire incidents, or natural disasters can be integrated into the database.</li></ul></li></ol><hr id="1030da91-133a-80f0-9b3d-d7c1099cf7ce"/><h3 id="1030da91-133a-80a8-a7d9-cc11c5215c13" class="">Example Use Cases:</h3><ul id="1030da91-133a-80d5-bdb0-e25bf041c284" class="bulleted-list"><li style="list-style-type:disc"><strong>Campus Security Officers:</strong> Campus security can query safety resources by type (e.g., fire incidents) to provide quick links to relevant fire prevention or response protocols.</li></ul><ul id="1030da91-133a-800e-bb8f-c465612ce3aa" class="bulleted-list"><li style="list-style-type:disc"><strong>Students and Faculty:</strong> Can access safety resources for various emergencies, such as medical or weather issues, directly from the API and integrate them into front-end applications or mobile apps.</li></ul><hr id="1030da91-133a-8094-b710-e1ccebe79b47"/><h3 id="9b7f9e4e-e8a4-475b-b323-67c1f4c9c905" class="">Future Enhancements:</h3><ul id="1030da91-133a-803f-b816-e195e0ef0dcd" class="bulleted-list"><li style="list-style-type:disc"><strong>Pagination and Filtering:</strong> Implement pagination and advanced filtering for large datasets. For example, filter by <code>subtype</code> in addition to <code>type</code>, and paginate results to improve response time.</li></ul><ul id="1030da91-133a-8092-98b7-cf1970503c72" class="bulleted-list"><li style="list-style-type:disc"><strong>Caching:</strong> Implement caching mechanisms to reduce database load for frequently accessed resources.</li></ul><ul id="1030da91-133a-8084-8847-eb5a61c5a210" class="bulleted-list"><li style="list-style-type:disc"><strong>Security:</strong> Add authentication and authorization mechanisms to ensure that sensitive safety resources are accessible only by authorized personnel.</li></ul><hr id="000563b9-ee6d-41e8-bffd-1c59c2d58e34"/></details></li></ul><ul id="1030da91-133a-8089-a58c-f24f632dde18" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Incidents API endpoint</span></strong></summary><h3 id="1030da91-133a-8075-816b-f4a1b82bc26a" class=""><strong>Feature Overview</strong></h3><p id="1030da91-133a-8021-b954-f3f6f0b1f38e" class=""><div class="indented"><p id="9f31cb7d-9795-4e22-a9f8-3fcb64b2593d" class="">The Incidents API allows users to report incidents with location details and optional photos. Users can update the status of safety incidents from pending to resolved or closed. Additionally, users can retrieve all previously reported incidents, including details such as building name, location, incident status, and timestamp.</p><p id="213928bb-100b-4460-ac8f-06d7682187f9" class="">Students and staff can easily report incidents, update their status, and access relevant incident reports to stay informed.</p></div></p><h2 id="1030da91-133a-80d8-80b7-e2e1c62eb104" class="">Endpoints</h2><h3 id="1030da91-133a-8039-842a-e4508f931524" class="">1. <code>GET /incidents</code></h3><h3 id="1030da91-133a-80e9-bc31-c75b716182a8" class=""><strong>Description:</strong></h3><p id="0597ced9-59af-48e1-8dcd-21709e1d1192" class=""> Retrieve all reported safety incidents, including details such as description, status, location,     and timestamp.</p><h3 id="1030da91-133a-800c-b24d-dc90f27a7e32" class=""><strong>Response Type:</strong></h3><ul id="1030da91-133a-80b9-b753-cf7dd3d64140" class="bulleted-list"><li style="list-style-type:disc"><code>array[Incident]</code></li></ul><h3 id="1030da91-133a-80fd-b867-df5e975c749e" class=""><strong>Example Response:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8054-aa0c-db32b8fb5843" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">[
+  {
+    &quot;building_name&quot;: &quot;Science Building&quot;,
+    &quot;latitude&quot;: 40.7128,
+    &quot;longitude&quot;: -74.006,
+    &quot;description&quot;: &quot;Fire in the science lab.&quot;,
+    &quot;id&quot;: 5,
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;timestamp&quot;: &quot;2024-08-19T08:20:00Z&quot;
+  },
+  {
+    &quot;building_name&quot;: &quot;Library&quot;,
+    &quot;latitude&quot;: 40.7139,
+    &quot;longitude&quot;: -74.001,
+    &quot;description&quot;: &quot;Water leakage in basement.&quot;,
+    &quot;id&quot;: 6,
+    &quot;status&quot;: &quot;resolved&quot;,
+    &quot;timestamp&quot;: &quot;2024-09-01T14:10:00Z&quot;
+  }
+]</code></pre><h3 id="ff3a9794-67b7-4de7-a0f9-fc4352f34686" class="">2. <code>PATCH /incidents/{incidentId}/status</code></h3><h3 id="780abbdf-b569-4ad7-8e95-e194138841bf" class=""><strong>Description:</strong></h3><p id="89a9f486-2055-4b57-8708-cb6db973eadf" class="">Update the status of a reported safety incident. The status can be changed to values like <code>pending</code>, <code>resolved</code>, or <code>closed</code>.</p><h3 id="eac91e2e-4f4c-4942-b0df-b42992bce6d4" class=""><strong>Path Parameters:</strong></h3><ul id="8cc7bcaf-ae3a-442e-876f-e60a6e920992" class="bulleted-list"><li style="list-style-type:disc"><code>incidentId</code> (required): The ID of the incident to update.</li></ul><h3 id="1030da91-133a-8047-ad95-ea3b685bb61b" class=""><strong>Request Body:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8088-b95e-c77e724dc059" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;active&quot;: 1
+}</code></pre><h3 id="1030da91-133a-801f-b61e-c479ce96592a" class=""><strong>Response Type:</strong></h3><ul id="1030da91-133a-8089-b524-f1ced877dc79" class="bulleted-list"><li style="list-style-type:disc"><code>inline_response_200_3</code></li></ul><h3 id="1030da91-133a-8092-a076-d5e688f09cb6" class=""><strong>Example Response:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-801b-8ee5-dddd6ecc7b5e" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;id&quot;: 5,
+  &quot;active&quot;: 0
+}</code></pre><h3 id="1030da91-133a-8035-8265-ccaa6ddc92b8" class="">3. <code>POST /incidents</code></h3><h3 id="1c6f8e40-d4b8-45e3-bcda-7a006e5f0c21" class=""><strong>Description:</strong></h3><p id="1030da91-133a-80f3-9fa9-e66568ee2312" class="">Report a new safety incident with details such as location and an optional photo attachment. Users can specify the building name, description, and coordinates.</p><h3 id="1030da91-133a-807b-b955-e5ce625e4785" class=""><strong>Form Parameters:</strong></h3><ul id="0500c059-9e18-48bb-bb08-6284ed17f112" class="bulleted-list"><li style="list-style-type:disc"><code>description</code> (required): The description of the safety incident.</li></ul><ul id="8b6ee262-8919-408a-91ba-d2da9137fd01" class="bulleted-list"><li style="list-style-type:disc"><code>photo</code> (optional): A binary image file related to the incident.</li></ul><ul id="1030da91-133a-80e9-8db9-da0f56e72a52" class="bulleted-list"><li style="list-style-type:disc"><code>latitude</code> (required): The latitude of the incident location.</li></ul><ul id="1030da91-133a-8053-9ee4-e5d0ded2f57d" class="bulleted-list"><li style="list-style-type:disc"><code>longitude</code> (required): The longitude of the incident location.</li></ul><ul id="1030da91-133a-80d0-be8a-e48403e0ff47" class="bulleted-list"><li style="list-style-type:disc">type (required): The name of the building where the incident occurred.</li></ul><h3 id="1030da91-133a-808a-bdbe-fea338453c09" class=""><strong>Request Example (Form Data):</strong></h3><ul id="75db2388-4e62-4c0f-bfb2-eb5e903d74b7" class="bulleted-list"><li style="list-style-type:disc"><code>Content-Type: multipart/form-data</code></li></ul><h3 id="1030da91-133a-80e4-a5ae-caec546d3dd0" class=""><strong>Request Example (Form Data):</strong></h3><ul id="1030da91-133a-805c-8e44-c57d801c4b17" class="bulleted-list"><li style="list-style-type:disc"><code>Content-Type: multipart/form-data</code></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-80ac-b2f2-ed7ce4d1e473" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;type&quot;: &quot;Medical Services&quot;,
+  &quot;latitude&quot;: 40.7128,
+  &quot;longitude&quot;: -74.006,
+  &quot;description&quot;: &quot;Flooding in the basement of Building A.&quot;,
+  &quot;photo&quot;: &#x27;link&#x27;
+}</code></pre><h3 id="1030da91-133a-80ba-bcdf-e5a187754c55" class=""><strong>Response Type:</strong></h3><ul id="1030da91-133a-8061-b418-f0bd86386e1f" class="bulleted-list"><li style="list-style-type:disc"><code>inline_response_201_1</code></li></ul><h3 id="1030da91-133a-8048-a535-ca7f3ba1cef5" class=""><strong>Example Response:</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1030da91-133a-8096-8072-d21f635e8de6" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">
+ {
+        &quot;id&quot;: 9,
+        &quot;description&quot;: &quot;\&quot;Someone fainted\&quot;&quot;,
+        &quot;active&quot;: 1,
+        &quot;latitude&quot;: -1214.45,
+        &quot;longitude&quot;: 77828.6,
+        &quot;type&quot;: &quot;\&quot;Medical Service\&quot;&quot;,
+        &quot;date&quot;: {
+            &quot;day&quot;: 16,
+            &quot;month&quot;: 9,
+            &quot;year&quot;: 2024,
+            &quot;time&quot;: {
+                &quot;hour&quot;: 21,
+                &quot;minute&quot;: 39
+            }
+        },
+        &quot;photo&quot;: &quot;https://firebasestorage.googleapis.com/v0/b/test-1be72.appspot.com/o/files%2FScreenshot%20(184).png?alt=media&amp;token=c7a05c76-5ac8-4517-9dd1-8269f9a842c0&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;description&quot;: &quot;\&quot;Floods\&quot;&quot;,
+        &quot;active&quot;: 0,
+        &quot;latitude&quot;: -1214.45,
+        &quot;longitude&quot;: 77828.6,
+        &quot;type&quot;: &quot;\&quot;Weather Service\&quot;&quot;,
+        &quot;date&quot;: {
+            &quot;day&quot;: 16,
+            &quot;month&quot;: 9,
+            &quot;year&quot;: 2024,
+            &quot;time&quot;: {
+                &quot;hour&quot;: 21,
+                &quot;minute&quot;: 59
+            }
+        },
+        &quot;photo&quot;: &quot;https://firebasestorage.googleapis.com/v0/b/test-1be72.appspot.com/o/files%2FScreenshot%20from%202024-03-10%2014-38-02.png?alt=media&amp;token=914d69a6-971f-41e1-b682-fffc4dad4e03&quot;
+    },</code></pre><h3 id="1030da91-133a-8039-944d-c729bcdc9a6a" class="">Feature Specification</h3><ul id="aeac4755-a6ae-4d08-9028-d00adf0c464b" class="bulleted-list"><li style="list-style-type:disc"><strong>API Base URL : </strong><em><mark class="highlight-brown_background"><strong>/</strong></mark></em><em><mark class="highlight-red"><strong>incidents</strong></mark></em></li></ul><h3 id="1040da91-133a-8090-9412-f22eec7d7a71" class="">Main Components</h3><ul id="53ca80df-3ee8-493b-ad10-a14087d5ae5d" class="bulleted-list"><li style="list-style-type:disc">GET </li></ul><ul id="1040da91-133a-809f-b66d-d8a5662344d7" class="bulleted-list"><li style="list-style-type:disc">PATCH</li></ul><ul id="1040da91-133a-80c5-b2c4-fbea62365fd8" class="bulleted-list"><li style="list-style-type:disc">POST</li></ul></details></li></ul><ul id="1030da91-133a-807a-9b91-cd856a6fafba" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Real-Time Push Notifications</span></strong></summary><h2 id="1030da91-133a-8068-baa9-c9ed6f4ff43f" class="">Feature Overview</h2><p id="1030da91-133a-80e5-acb3-f0017832bd11" class="">This documentation provides a comprehensive guide to implementing a notification system using Server-Sent Events (SSE) with a React frontend. It includes detailed instructions on integrating SSE into your React application and how to subscribe to the SSE endpoint for real-time notifications.</p><p id="1030da91-133a-800c-9282-e4f03b6149f1" class="">End Users must have Notifications enabled on their device settings to receive notifications. </p><p id="338e43d3-b25e-4b2d-b7f7-5c09c4a2a957" class="">Server-Sent Events (SSE) is a standard allowing servers to push updates to web clients over a single, long-lived HTTP connection. Unlike WebSockets, which provide full-duplex communication, SSE is designed for simpler, one-way communication from the server to the client</p><h2 id="1030da91-133a-8052-9389-cebf9f4460c7" class="">Features</h2><ul id="1030da91-133a-806d-bd82-e627578ceb82" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-time Notifications</strong>: Receive live updates from the server directly in the React application.</li></ul><ul id="1030da91-133a-8005-b043-ebea9ef8bc48" class="bulleted-list"><li style="list-style-type:disc"><strong>Automatic Reconnection</strong>: Built-in reconnection logic ensures that clients automatically reconnect if the connection is lost.</li></ul><ul id="1030da91-133a-80ec-9d1b-e4987e1e8a87" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Implementation</strong>: Uses standard HTTP and a text-based format for easy debugging and maintenance.</li></ul><ul id="1030da91-133a-80a6-a3c9-cec477b3d4d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Unidirectional Communication</strong>: SSE allows the server to send updates to the client but does not support client-to-server communication beyond simple HTTP requests. This is ideal for scenarios where you only need to push data to clients, such as live notifications or real-time updates.</li></ul><ul id="1030da91-133a-8097-8b38-d01934cc9f99" class="bulleted-list"><li style="list-style-type:disc"><strong>Built-in Reconnection</strong>: SSE automatically handles reconnections if the connection is lost. The browser will attempt to reconnect to the server with an exponential backoff strategy.</li></ul><ul id="1030da91-133a-8078-8daf-ecf85a51db36" class="bulleted-list"><li style="list-style-type:disc"><strong>Text-Based Protocol</strong>: SSE uses a text-based format, making it easy to debug and work with</li></ul><h2 id="1030da91-133a-80a8-b381-ebb6b52d1a28" class="">Integration</h2><p id="e3073f71-410d-46d9-b379-0f2b1623203d" class="">
+</p><p id="030a8cb0-0354-4ff1-8867-e501d9816fea" class="">Other teams who want to receive live notifications from your system can follow these instructions:</p><ol type="1" id="74ebdd5f-217b-488c-ab35-86dea2b7cbbc" class="numbered-list" start="1"><li><strong>Subscribe to the SSE Endpoint</strong><ul id="5dc26b09-4503-41e2-92c9-3be798dc6cad" class="bulleted-list"><li style="list-style-type:disc"><strong>Endpoint</strong>: <code>alerts/pushalerts</code></li></ul><ul id="5d273093-a320-46ca-a723-77d52e1a7568" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Connect to the SSE stream to receive notifications.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6052c253-8d42-4c7e-8cfb-aab0aa8caba5" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+const eventSource = new EventSource(&#x27;{liveUrl}/alerts/pushalerts&#x27;);
+//include live URL
+</code></pre></li></ol><ol type="1" id="584cc37c-983c-4f86-853d-8bce39820b4d" class="numbered-list" start="2"><li><strong>Handle Incoming Notifications</strong><ul id="b398d32a-ecd2-40f3-a1a1-682539577610" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Process and display real-time notifications as they arrive.</li></ul><ul id="2608ee4f-953a-4fca-bbbf-31895233b8ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Payload Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4bcae251-366c-4e3b-a81d-d51c7ff8ee71" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">
+{
+    &quot;desc&quot;: &quot;Sample incident description&quot;
+}
+
+</code></pre></li></ul><ul id="d2bbe501-1e40-4302-9e31-6461ee14b511" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ec08cabf-d7c7-48b5-8dde-ab1d247446c1" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.onmessage = (event) =&gt; {
+    const data = JSON.parse(event.data);
+    // Process the notification data
+    console.log(&#x27;Notification received:&#x27;, data.desc);
+};
+
+</code></pre></li></ul></li></ol><ol type="1" id="9da63033-253c-4110-87fa-049ec71254b1" class="numbered-list" start="3"><li><strong>Handle Errors</strong><ul id="d6fe3957-f9ea-4f2f-a8de-a07a77f8d942" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Manage connection errors and provide fallbacks if needed.</li></ul><ul id="0a6b94e2-a2be-4534-8ec6-bd0cddb2c18e" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="44a16c11-fc5d-4197-9561-5fab2b8fd107" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.onerror = (error) =&gt; {
+    console.error(&#x27;EventSource failed:&#x27;, error);
+    eventSource.close();
+};
+
+</code></pre></li></ul></li></ol><ol type="1" id="b7ce82dc-a92b-4cf1-ba71-49be2ca39411" class="numbered-list" start="4"><li><strong>Close the Connection</strong><ul id="19517ee7-1c8c-47e7-9809-17a146e18ce1" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Clean up and close the connection when no longer needed.</li></ul><ul id="21d55b29-fa79-4373-8f34-7354cbc925f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="69270d1b-b92f-4aa3-b1c8-bb1767ce3cf4" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.close();
+
+</code></pre></li></ul></li></ol><h2 id="b56b6225-1f2c-4f04-b472-556f1039f2d7" class=""></h2><p id="dc551057-685a-4038-ad97-67898a73d421" class="">This React notification system using Server-Sent Events (SSE) enables real-time updates to be efficiently pushed to clients. By following the integration steps and using the provided payload format, other teams can easily connect to our notification system and receive timely information.</p><p id="d332ceb3-7682-49f3-ba69-5e429b26019c" class="">
+</p></details></li></ul><ul id="8b2a8ff6-2d24-42ab-8f2e-53245d919d36" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Frontend</span></strong></summary><h2 id="08e78b16-2e04-45d2-9474-ad7dcbaba6f9" class="">Feature Overview</h2><p id="773b5bac-bb64-4a8c-8c33-ac8488bb59c1" class="">This documentation provides a comprehensive guide to implementing the frontend system for the react application. Each component is minimalized and structured to ensure robustness and easy expansion of the project. Additionally, middle-end “services” are used to mediate communication to the backend</p><h2 id="be8bd0d9-7876-4731-bc1a-ac1d3007d89c" class="">Features</h2><ul id="7f66e23a-a693-4fa2-ae0d-9c372e1d9f70" class="bulleted-list"><li style="list-style-type:disc">Quick-report alert system: Users make use of the navigation (!) button at the bottom of the screen to make a quick report. This ensures that users in dangerous situations can make an alert quickly and easily</li></ul><ul id="32544d63-bd99-4e03-acd4-df1b992c7b3c" class="bulleted-list"><li style="list-style-type:disc">Detailed-report incident system: Users make use of the popup menu achieved by double clicking the navigation button to make a more detailed report that allows them to provide a description and attach an image.</li></ul><ul id="3999aafd-1e65-426f-a647-4f2b7f26a266" class="bulleted-list"><li style="list-style-type:disc">Important resources: Using the menu on the left, users are able to find resources such as emergency contacts, wits safety resources, and first aid guides as well as show their medical information on-screen for medical professionals to view</li></ul><ul id="b4775e82-a6b3-414e-9dcd-94810e030d1c" class="bulleted-list"><li style="list-style-type:disc">Emergency calling: Users can also make use of easy-access emergency call button to immediately make an SOS call</li></ul><ul id="8fd26443-4210-4a79-8f24-bd6e76be20ae" class="bulleted-list"><li style="list-style-type:disc">Walk-home: Assistance is provided to users who wish to walk home with an on-demand assistant. This is done via the navigation side menu.</li></ul><ul id="1040da91-133a-80ca-91fb-d894105164ab" class="bulleted-list"><li style="list-style-type:disc"></li></ul><h2 id="9700bd13-da52-4ab6-9d9d-b14b43c99dbe" class="">Integration</h2><p id="c7a9fe9f-86f2-4416-9a14-a0a8d12b84c7" class="">
+</p><p id="2c3f403c-7948-4c1b-bfe4-a1412d03dada" class="">Other teams who want to receive live notifications from your system can follow these instructions:</p><ol type="1" id="a4c0d617-e3c1-4717-a21a-fa0417620c6b" class="numbered-list" start="1"><li><strong>Subscribe to the SSE Endpoint</strong><ul id="8ad6e3e7-44f7-4f8d-a746-3b062019aa43" class="bulleted-list"><li style="list-style-type:disc"><strong>Endpoint</strong>: <code>alerts/pushalerts</code></li></ul><ul id="68117316-b3d7-45ab-a3b8-0659f4841c41" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Connect to the SSE stream to receive notifications.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1421b412-277c-462a-8b35-d0ece890e188" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+const eventSource = new EventSource(&#x27;{liveUrl}/alerts/pushalerts&#x27;);
+//include live URL
+</code></pre></li></ol><ol type="1" id="24b44658-013b-4231-b041-16d5af9412d6" class="numbered-list" start="2"><li><strong>Handle Incoming Notifications</strong><ul id="9b0a7a0e-ad5e-4adb-9b1a-f365e7e4517c" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Process and display real-time notifications as they arrive.</li></ul><ul id="3977f66f-73e9-47f0-9d8f-9d32b8222b79" class="bulleted-list"><li style="list-style-type:disc"><strong>Payload Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2cbe6ab2-4d55-4b33-8402-8963a88587a2" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">
+{
+    &quot;desc&quot;: &quot;Sample incident description&quot;
+}
+
+</code></pre></li></ul><ul id="315fbca6-da9a-4275-a672-2b68d68c0457" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="aa2b2b07-4db2-4b4a-a33f-b595d1781668" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.onmessage = (event) =&gt; {
+    const data = JSON.parse(event.data);
+    // Process the notification data
+    console.log(&#x27;Notification received:&#x27;, data.desc);
+};
+
+</code></pre></li></ul></li></ol><ol type="1" id="d0bbde0c-b433-46b9-b83d-146b6ada8b36" class="numbered-list" start="3"><li><strong>Handle Errors</strong><ul id="94098e4a-f706-4cc7-9e58-f0c185b41ad6" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Manage connection errors and provide fallbacks if needed.</li></ul><ul id="aa86c2c6-9230-466f-9602-9ad3e663fd3e" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8078be63-d4b3-4d41-b1b5-7cbd9bd9791d" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.onerror = (error) =&gt; {
+    console.error(&#x27;EventSource failed:&#x27;, error);
+    eventSource.close();
+};
+
+</code></pre></li></ul></li></ol><ol type="1" id="92651701-6365-42c5-957b-e78eaa99ee0c" class="numbered-list" start="4"><li><strong>Close the Connection</strong><ul id="0fb5467a-07cc-4955-baad-8ece8e3c9372" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: Clean up and close the connection when no longer needed.</li></ul><ul id="20310d95-3d41-40d1-9f7e-46ca66c7c5e2" class="bulleted-list"><li style="list-style-type:disc"><strong>Code Example</strong>:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3ed7c582-8e44-43a8-ada8-aa9c3dfa6e57" class="code"><code class="language-JavaScript" style="white-space:pre-wrap;word-break:break-all">
+eventSource.close();
+
+</code></pre></li></ul></li></ol><h2 id="8055cdb6-85b2-4f3a-9598-6c3e57288a4d" class=""></h2><p id="3d6ad48f-5b30-428f-8daf-07a6b1e03a9b" class="">This React notification system using Server-Sent Events (SSE) enables real-time updates to be efficiently pushed to clients. By following the integration steps and using the provided payload format, other teams can easily connect to our notification system and receive timely information.</p><p id="c45a66b8-414e-4a8f-9812-5dd51d48a038" class="">
+</p></details></li></ul><p id="4c48967e-9cc1-4bf0-98f0-a9ec45b78453" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

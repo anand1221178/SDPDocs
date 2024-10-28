@@ -1,0 +1,784 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Testing results</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="104d6ad1-12fa-80b8-ae3c-d2b17ef7647b" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/chemistry_orange.svg"/></div><h1 class="page-title">Testing results</h1><p class="page-description"></p></header><div class="page-body"><h2 id="104d6ad1-12fa-808e-93bd-e406381317cc" class="">CodeCoverage reports</h2><figure id="6dd1639d-b328-480a-aacf-d8e8b274b2f0" class="image"><a href="Testing%20results%20104d6ad112fa80b8ae3cd2b17ef7647b/Screenshot_from_2024-09-17_11-30-06.png"><img style="width:708px" src="Testing%20results%20104d6ad112fa80b8ae3cd2b17ef7647b/Screenshot_from_2024-09-17_11-30-06.png"/></a></figure><p id="104d6ad1-12fa-80a2-8c8e-c29ede33f01f" class="">
+</p><h2 id="a8bcf204-96d6-4713-a0b7-0a1c43e54c91" class="">CI/CD testing integration</h2><figure id="a739f794-e4bc-4f32-bd6f-b5f48e227b77" class="image"><a href="Testing%20results%20104d6ad112fa80b8ae3cd2b17ef7647b/image.png"><img style="width:708px" src="Testing%20results%20104d6ad112fa80b8ae3cd2b17ef7647b/image.png"/></a></figure><p id="104d6ad1-12fa-8072-bafb-c4ee52dbe660" class="">
+</p><p id="104d6ad1-12fa-80d6-ab8f-e301d29760e3" class="">
+</p><ul id="104d6ad1-12fa-80a0-b14a-cc21b7eb71d9" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Login Tests</span></strong></summary><h3 id="104d6ad1-12fa-8054-b654-e67fd6825ebb" class="">Documentation: Test Cases for <code>POST /users/login</code> API</h3><h3 id="104d6ad1-12fa-8048-a31f-cd16c4eea3e4" class="">Overview</h3><p id="104d6ad1-12fa-80a5-9170-f4a01fc415ea" class="">This documentation covers the unit test cases written for the <code>POST /users/login</code> API using <code>supertest</code>, <code>express</code>, and <code>jest</code>. The purpose of these test cases is to verify the behavior of the login functionality by simulating different scenarios (valid login, invalid login, and server errors) and asserting the appropriate response status codes and messages.</p><h3 id="f45f3433-8c21-40a0-9ce3-925c5637ace1" class="">Prerequisites</h3><ul id="104d6ad1-12fa-8013-8d11-d234ca263400" class="bulleted-list"><li style="list-style-type:disc"><strong>Testing Frameworks</strong>: The tests use <code>jest</code> for unit testing and <code>supertest</code> for testing HTTP requests.</li></ul><ul id="104d6ad1-12fa-8080-a301-eb6610f1df1a" class="bulleted-list"><li style="list-style-type:disc"><strong>Mocking</strong>: The <code>loginController</code>&#x27;s <code>validateUserLogin</code> function is mocked to simulate different outcomes during the login process.</li></ul><h3 id="104d6ad1-12fa-80a5-bf64-e64cd54faf18" class="">API Endpoint Tested</h3><ul id="104d6ad1-12fa-80c6-a643-c2f69ef5793e" class="bulleted-list"><li style="list-style-type:disc"><strong>Endpoint</strong>: <code>POST /users/login</code></li></ul><ul id="104d6ad1-12fa-8039-a6b0-cd46d11ac952" class="bulleted-list"><li style="list-style-type:disc"><strong>Description</strong>: The API endpoint handles login attempts by verifying the provided username and password. Depending on the credentials, it responds with success, failure, or error messages.</li></ul><ul id="104d6ad1-12fa-80a4-ae69-f4d1cc50c679" class="bulleted-list"><li style="list-style-type:disc"><strong>Method</strong>: <code>POST</code></li></ul><hr id="104d6ad1-12fa-8034-8ede-d38ae6b8fff0"/><h3 id="71631237-92da-44a2-b092-c3313fb598a3" class="">Test Case 1: Valid Credentials</h3><ul id="7cd9c51f-e043-46ef-b7ba-02d9284d5a20" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return 200 and a success message when credentials are valid.</li></ul><ul id="104d6ad1-12fa-80e8-94b1-cb30a17bc089" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test verifies that the system correctly handles valid login credentials and returns a success response.</li></ul><ul id="104d6ad1-12fa-8019-b078-f5318c2c7ae4" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="104d6ad1-12fa-8050-9a2a-dcaab5b8dee1" class="bulleted-list"><li style="list-style-type:circle">The <code>loginController.validateUserLogin</code> function is mocked to resolve with <code>true</code>, indicating that the credentials are valid.</li></ul></li></ul><ul id="104d6ad1-12fa-8013-92c1-d49a0acc6d49" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="104d6ad1-12fa-80ea-86c4-c075438896d7" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 200</li></ul><ul id="104d6ad1-12fa-8077-ad5c-ccd461ee7bb9" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: <code>{ message: &#x27;Login successful&#x27; }</code></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-8089-96f1-d3f523bae7f6" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return 200 and a success message when credentials are valid&#x27;, async () =&gt; {
+    loginController.validateUserLogin.mockResolvedValueOnce(true);
+
+    const res = await request(app)
+        .post(&#x27;/users/login&#x27;)
+        .send({ username: &#x27;validUser&#x27;, password: &#x27;validPass&#x27; });
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ message: &#x27;Login successful&#x27; });
+});
+</code></pre><hr id="104d6ad1-12fa-80ca-9d27-cf719d53afa1"/><h3 id="104d6ad1-12fa-801c-9cd9-e96c8184b02b" class="">Test Case 2: Invalid Credentials</h3><ul id="104d6ad1-12fa-80c2-96fd-d4c0e7cb548b" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return 401 and an error message when credentials are invalid.</li></ul><ul id="b1cb1cea-ffae-44c4-a28d-609c2dc81f34" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test verifies that the system returns a <code>401 Unauthorized</code> status when incorrect login credentials are provided.</li></ul><ul id="104d6ad1-12fa-80bc-b857-dd172ceca875" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="104d6ad1-12fa-80dd-b4d8-cca337990309" class="bulleted-list"><li style="list-style-type:circle">The <code>loginController.validateUserLogin</code> function is mocked to resolve with <code>false</code>, indicating that the credentials are invalid.</li></ul></li></ul><ul id="104d6ad1-12fa-80cd-afee-f39712128dce" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="104d6ad1-12fa-806c-be10-e6ce861094f6" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 401</li></ul><ul id="104d6ad1-12fa-8037-b3c3-e6e5c7f11c47" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: <code>{ message: &#x27;Invalid credentials&#x27; }</code></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8e529ab3-cbeb-45d4-ae48-8db5c3786594" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return 401 and an error message when credentials are invalid&#x27;, async () =&gt; {
+    loginController.validateUserLogin.mockResolvedValueOnce(false);
+
+    const res = await request(app)
+        .post(&#x27;/users/login&#x27;)
+        .send({ username: &#x27;invalidUser&#x27;, password: &#x27;invalidPass&#x27; });
+
+    expect(res.statusCode).toBe(401);
+    expect(res.body).toEqual({ message: &#x27;Invalid credentials&#x27; });
+});
+</code></pre><hr id="104d6ad1-12fa-8074-be32-d3160737c1e5"/><h3 id="104d6ad1-12fa-80b6-97d1-c28b6527e080" class="">Test Case 3: Server Error</h3><ul id="381b192b-4ed0-417b-9bcd-de1c7b9c39c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return 500 and a server error message when an error occurs.</li></ul><ul id="104d6ad1-12fa-808d-991a-ebb0b0d284e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test simulates an internal server error (e.g., database issues) and verifies that the system returns a <code>500 Internal Server Error</code> status with a proper error message.</li></ul><ul id="104d6ad1-12fa-8039-a4d8-cf86baa4513b" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="104d6ad1-12fa-8052-90ab-d3a82aa86416" class="bulleted-list"><li style="list-style-type:circle">The <code>loginController.validateUserLogin</code> function is mocked to reject with an error, simulating a server-side failure.</li></ul></li></ul><ul id="4526c59b-98b0-4f5d-a304-28c5bc8f3f63" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="104d6ad1-12fa-80e5-833e-d9eceae40498" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 500</li></ul><ul id="104d6ad1-12fa-8002-9fa7-df5b881215af" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: <code>{ error: &#x27;Server error: Database error&#x27; }</code></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-80de-a398-f52f250f9e9d" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return 500 and a server error message when an error occurs&#x27;, async () =&gt; {
+    loginController.validateUserLogin.mockRejectedValueOnce(new Error(&#x27;Database error&#x27;));
+
+    const res = await request(app)
+        .post(&#x27;/users/login&#x27;)
+        .send({ username: &#x27;user&#x27;, password: &#x27;pass&#x27; });
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: &#x27;Server error: Database error&#x27; });
+});
+</code></pre><hr id="d6dd97fe-2159-4a2a-aa21-584ba19d7fef"/><h3 id="104d6ad1-12fa-80de-83ae-c168b301c927" class="">Mocking</h3><p id="104d6ad1-12fa-8052-b59f-efdb083a7111" class="">The <code>validateUserLogin</code> function is mocked using Jest to simulate the different scenarios for the login attempts:</p><ul id="104d6ad1-12fa-804c-9ab5-c652d58c7bdb" class="bulleted-list"><li style="list-style-type:disc"><strong>Valid login</strong>: Returns <code>true</code>.</li></ul><ul id="104d6ad1-12fa-80f8-b836-c926cff2420f" class="bulleted-list"><li style="list-style-type:disc"><strong>Invalid login</strong>: Returns <code>false</code>.</li></ul><ul id="104d6ad1-12fa-8057-82df-d7926be0146d" class="bulleted-list"><li style="list-style-type:disc"><strong>Server error</strong>: Throws an error.</li></ul><p id="104d6ad1-12fa-8000-ae2a-f834eb8298b2" class="">By mocking this function, we isolate the tests to focus on how the route behaves under various conditions without requiring actual database or external service calls.</p><hr id="104d6ad1-12fa-8029-904f-f23ce3acdade"/><h3 id="104d6ad1-12fa-809d-a5a1-e9013b8d8331" class="">Conclusion</h3><p id="104d6ad1-12fa-8016-a049-d6f7dc757625" class="">These test cases ensure that the login route (<code>POST /users/login</code>) handles different situations appropriately:</p><ul id="104d6ad1-12fa-8006-a640-f31865e0a49a" class="bulleted-list"><li style="list-style-type:disc">Successful login with valid credentials.</li></ul><ul id="104d6ad1-12fa-8019-b9c4-e36bdc643699" class="bulleted-list"><li style="list-style-type:disc">Unauthorized access with invalid credentials.</li></ul><ul id="ea9458d5-b94a-4245-81f8-0bb06f614ea0" class="bulleted-list"><li style="list-style-type:disc">Server error response when something goes wrong internally.</li></ul><p id="104d6ad1-12fa-80ab-8f11-c6843eebc1fc" class="">Each test verifies both the status code and the response message, providing confidence that the system behaves as expected in each scenario.</p></details></li></ul><ul id="104d6ad1-12fa-80af-b2a6-d83404151441" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Resources Tests</span></strong></summary><h3 id="4391f0d8-fd31-40d8-928a-74aeab6ad5ba" class="">Documentation: Test Cases for <code>SafetyResourcesController</code></h3><h3 id="9a8d8f11-0f4a-41ec-b45b-37b47f76c1ed" class="">Overview</h3><p id="cf294628-b2e3-425a-bbf9-32ad4483cc7b" class="">This documentation outlines the unit test cases for the <code>SafetyResourcesController</code> routes in the API. The tests are written using <code>supertest</code>, <code>express</code>, and <code>jest</code> to simulate HTTP requests and verify the behavior of the <code>/resources/safety-resources</code> and <code>/resources/safety-resources/:type</code> endpoints. The <code>pool.query</code> function from the database is mocked to simulate various outcomes, including valid data retrieval and server errors.</p><h3 id="3e81ddae-9f7e-46f3-92be-3e9e1757d100" class="">Prerequisites</h3><ul id="41cefba7-d211-4c2d-aa8e-92346da34cb8" class="bulleted-list"><li style="list-style-type:disc"><strong>Testing Frameworks</strong>: These tests use <code>jest</code> for unit testing and <code>supertest</code> for making HTTP requests.</li></ul><ul id="91ff4f83-72c6-4b54-bdfd-ea03a0a2e905" class="bulleted-list"><li style="list-style-type:disc"><strong>Mocking</strong>:<ul id="7ea735b5-161c-45f1-bff2-0c58149f289b" class="bulleted-list"><li style="list-style-type:circle">The <code>pool.query</code> function is mocked to simulate interactions with the database.</li></ul><ul id="d9c381bb-c4fe-4b6c-ad07-46925aaf4547" class="bulleted-list"><li style="list-style-type:circle"><code>console.error</code> is also mocked to prevent error logging from interfering with the test outputs.</li></ul></li></ul><h3 id="5ee4e745-059d-4b4a-b1e4-fca4d60f5f79" class="">API Endpoints Tested</h3><ol type="1" id="3ba05766-a7ed-4b88-9a39-e77dd7b6c1f6" class="numbered-list" start="1"><li><code><strong>GET /resources/safety-resources</strong></code>: Fetches all safety resources.</li></ol><ol type="1" id="a747a08d-a761-4e97-b593-69bae7a0a1c2" class="numbered-list" start="2"><li><code><strong>GET /resources/safety-resources/:type</strong></code>: Fetches safety resources filtered by type.</li></ol><hr id="255df077-2e8f-48f1-b90b-385b30d6959d"/><h3 id="6956b206-ad8e-4353-ae51-2b6262103a45" class="">Test Case 1: Fetch All Safety Resources</h3><ul id="e0697282-a1a9-485b-98fd-4f19c7ec4d57" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return all safety resources.</li></ul><ul id="0c7ffeff-27ec-4596-92eb-663f31b982fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test verifies that the API successfully retrieves all available safety resources from the database.</li></ul><ul id="7b0cc868-068a-4ea0-bba0-643750c08a75" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="7963d30b-e6ce-40a6-9e9e-a41e6afd870b" class="bulleted-list"><li style="list-style-type:circle">The <code>pool.query</code> function is mocked to return a list of safety resources.</li></ul></li></ul><ul id="5faa0e25-3d9c-4d7d-82eb-70dd16c068a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="682b15ee-848d-434f-8a79-45cb41fa6159" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 200</li></ul><ul id="a2aa06c6-c3bb-436a-9f29-c949a7851a48" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: The list of safety resources returned by the database, e.g., <code>[{ id: 1, type: &#x27;fire&#x27;, name: &#x27;Fire Extinguisher&#x27; }]</code>.</li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="41379a31-7204-4f91-9812-cb5416cf0a64" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return all safety resources&#x27;, async () =&gt; {
+    const mockResources = [{ id: 1, type: &#x27;fire&#x27;, name: &#x27;Fire Extinguisher&#x27; }];
+    pool.query.mockResolvedValueOnce([mockResources]);
+
+    const res = await request(app).get(&#x27;/resources/safety-resources&#x27;);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual(mockResources);
+});
+</code></pre><hr id="bcdf07aa-ec90-4a90-8120-d2fcc03a3210"/><h3 id="40a5fea7-b26e-40e5-86f5-4d5328723a22" class="">Test Case 2: Server Error when Fetching All Resources</h3><ul id="76544a9d-12b8-4d3d-a181-9c4970724b64" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return 500 if there is a server error.</li></ul><ul id="bbf1aa1e-1aa5-4885-a3cc-0b7837f4c285" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test checks that the API correctly handles server-side errors when fetching all safety resources.</li></ul><ul id="308a0dc6-ae97-4846-8ac6-f269687432f3" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="70623101-0b14-4e07-a70c-1e68e8385b50" class="bulleted-list"><li style="list-style-type:circle">The <code>pool.query</code> function is mocked to throw an error, simulating a database issue.</li></ul></li></ul><ul id="556a325c-2917-43f9-b2a1-6c9668f0adfd" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="20c775c7-6d2e-4de4-b4c8-c56188093539" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 500</li></ul><ul id="e8713ad2-bf80-48b4-8eaf-1b4eb7fb4ed8" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: <code>{ message: &#x27;Server error: Database error&#x27; }</code></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9e46a10f-99cf-4580-b6b0-0a8deb204ded" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return 500 if there is a server error&#x27;, async () =&gt; {
+    pool.query.mockRejectedValueOnce(new Error(&#x27;Database error&#x27;));
+
+    const res = await request(app).get(&#x27;/resources/safety-resources&#x27;);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ message: &#x27;Server error: Database error&#x27; });
+});
+</code></pre><hr id="685a7a01-0d16-4df5-8b5a-6f1f1a2db6cf"/><h3 id="06a5594b-7078-453d-928d-c90331c3b4c4" class="">Test Case 3: Fetch Safety Resources by Type</h3><ul id="c580cce3-f943-4e51-94ce-9e531359c3d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return safety resources of a specific type.</li></ul><ul id="6d5ba2c5-625f-4ed6-80dc-065da5e5d2ce" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test ensures that the API can filter safety resources by a given type and return only the relevant records.</li></ul><ul id="d326d6fe-a72c-4517-8ad0-9d312e2b4863" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="c6c2abba-edba-400f-a68e-efad96d7af5e" class="bulleted-list"><li style="list-style-type:circle">The <code>pool.query</code> function is mocked to return resources of a specific type (e.g., <code>fire</code>).</li></ul></li></ul><ul id="0f0275af-8045-4ff1-96b2-ce3428652f8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="4cfa656d-2b78-4458-adb8-38ce5eb14136" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 200</li></ul><ul id="2785b64d-880f-4003-88cb-fd457e22090f" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: A filtered list of resources for the specified type, e.g., <code>[{ id: 1, type: &#x27;fire&#x27;, name: &#x27;Fire Extinguisher&#x27; }]</code>.</li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="84ac3e91-7a4f-4892-8fe8-60eaa676def8" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return safety resources of a specific type&#x27;, async () =&gt; {
+    const mockResources = [{ id: 1, type: &#x27;fire&#x27;, name: &#x27;Fire Extinguisher&#x27; }];
+    pool.query.mockResolvedValueOnce([mockResources]);
+
+    const res = await request(app).get(&#x27;/resources/safety-resources/fire&#x27;);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual(mockResources);
+});
+</code></pre><hr id="fd78fed1-4094-449b-a2ed-6cd96581156a"/><h3 id="4666c374-1fee-4d66-a901-4b27040365bc" class="">Test Case 4: Server Error when Fetching Resources by Type</h3><ul id="abd81227-9d02-4cb6-b70c-83a50151dbc7" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Name</strong>: Should return 500 if there is a server error while fetching resources by type.</li></ul><ul id="f84ff1fb-5171-41fd-b93e-0203e0f957d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: This test verifies that the API correctly handles server-side errors when filtering resources by type.</li></ul><ul id="57ca4f7b-5eaa-47c0-960a-dfe9dbea07a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Mock Setup</strong>:<ul id="cf1a304f-1ea1-43f0-b757-6db0a76ee0dd" class="bulleted-list"><li style="list-style-type:circle">The <code>pool.query</code> function is mocked to throw an error, simulating a database failure.</li></ul></li></ul><ul id="6fb20542-06b2-42a1-9229-1a751b0926bb" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Outcome</strong>:<ul id="bf29d5c7-2993-4f65-ae54-a739cffdb2e3" class="bulleted-list"><li style="list-style-type:circle"><strong>Status Code</strong>: 500</li></ul><ul id="384871a7-dab0-49f1-b276-d857df2a0cfb" class="bulleted-list"><li style="list-style-type:circle"><strong>Response Body</strong>: <code>{ message: &#x27;Server error: Database error&#x27; }</code></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bd7b734f-8919-49c7-ab3a-c665b3de54f5" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">it(&#x27;should return 500 if there is a server error&#x27;, async () =&gt; {
+    pool.query.mockRejectedValueOnce(new Error(&#x27;Database error&#x27;));
+
+    const res = await request(app).get(&#x27;/resources/safety-resources/fire&#x27;);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ message: &#x27;Server error: Database error&#x27; });
+});
+</code></pre><hr id="c91afc3c-ffaf-44e9-bc99-43067280055d"/><h3 id="094767d4-0f9c-4a32-b0f2-ec33bdab3989" class="">Mocking</h3><ul id="2172f8a5-eeb0-46f6-8cba-1d6c21d3a9a1" class="bulleted-list"><li style="list-style-type:disc"><strong>Database Query Mock</strong>: The <code>pool.query</code> function is mocked using Jest to simulate various scenarios:<ul id="5db48940-e677-4eca-bfc7-4fd707b8d22b" class="bulleted-list"><li style="list-style-type:circle"><strong>Successful query</strong>: Returns mock data, such as a list of safety resources or resources filtered by type.</li></ul><ul id="90e7b729-d9d7-437a-821b-b21d56c8581f" class="bulleted-list"><li style="list-style-type:circle"><strong>Error query</strong>: Throws an error to simulate a database failure.</li></ul></li></ul><ul id="b8fe64f4-d49d-4905-a0cb-7ae73b52bc68" class="bulleted-list"><li style="list-style-type:disc"><strong>Console Error Mock</strong>: The <code>console.error</code> function is mocked to suppress logs during test execution, allowing tests to run without cluttering the console with error messages.</li></ul><hr id="66312a1e-e7ef-4023-8eee-8878be4b5b8e"/><h3 id="d6581805-41fc-4dfb-8726-5c99e9441917" class="">Conclusion</h3><p id="cbf2cede-dc08-4f92-9722-8ba0ad5ab3f8" class="">These test cases validate that the <code>/resources/safety-resources</code> API behaves correctly under different scenarios:</p><ol type="1" id="31880d6f-baf0-4378-b698-8e5b4d1e189f" class="numbered-list" start="1"><li>Successfully retrieving all safety resources.</li></ol><ol type="1" id="dd541204-32ad-4c8b-ac4e-1d205f390ffd" class="numbered-list" start="2"><li>Successfully retrieving resources of a specific type.</li></ol><ol type="1" id="5f07c09f-d763-4f80-b4b6-7faebd196c99" class="numbered-list" start="3"><li>Handling server-side errors, both for general and filtered queries.</li></ol><p id="68da8179-1f8b-4b9a-b142-e6d7376e67b5" class="">By testing both the success and error paths, the suite ensures that the system is robust and can handle various situations gracefully.</p></details></li></ul><ul id="104d6ad1-12fa-80ad-a3c9-d90c5cc44b4e" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Alerts Tests</span></strong></summary><h3 id="104d6ad1-12fa-8022-a999-dafd703c630f" class=""><strong>Integration Test Cases Report - Safety Alerts API</strong></h3><hr id="b1fb5ccf-49d8-45bb-99e6-252a65f00196"/><p id="8a4d3de1-a4b4-4db2-bd9f-b6c9d784f5aa" class=""><strong>1. Overview:</strong></p><p id="104d6ad1-12fa-80fe-8c56-e6d11b9bc409" class="">This report outlines the integration tests for the Safety Alerts API. The tests are conducted using <strong>Jest</strong> and <strong>Supertest</strong> to simulate HTTP requests to the Express server. Each test case ensures that the API’s core functionality—fetching, creating, and updating safety alerts—works as expected.</p><hr id="104d6ad1-12fa-80f7-858c-e4531431c8fa"/><p id="104d6ad1-12fa-805c-8149-cff18baaf019" class=""><strong>2. Test Environment Setup:</strong></p><ul id="104d6ad1-12fa-802c-91a9-db7118421f03" class="bulleted-list"><li style="list-style-type:disc"><strong>Mocking Controllers:</strong><ul id="104d6ad1-12fa-8041-aac7-cb144c5fe66f" class="bulleted-list"><li style="list-style-type:circle">The controller functions (<code>insertAlert</code>, <code>fetchAlerts</code>, and <code>updateAlertStatus</code>) are mocked using Jest to simulate real API logic without needing database interaction.</li></ul></li></ul><ul id="104d6ad1-12fa-8002-a1a7-e6544bad9826" class="bulleted-list"><li style="list-style-type:disc"><strong>Express Setup:</strong><ul id="564a0dd5-8a07-4f21-bd10-60c1bcbc2631" class="bulleted-list"><li style="list-style-type:circle">The app is configured using JSON and the <code>/alerts</code> route for handling safety alert requests.</li></ul></li></ul><ul id="104d6ad1-12fa-801c-a0f5-e48f0b225809" class="bulleted-list"><li style="list-style-type:disc"><strong>Mocking </strong><code><strong>console.error</strong></code><strong>:</strong><ul id="f1aaf9cc-9e40-4e85-b9a5-5d4e513bbcfc" class="bulleted-list"><li style="list-style-type:circle">A spy is used to mock <code>console.error</code> to prevent error logs from showing up during test execution.</li></ul></li></ul><hr id="104d6ad1-12fa-80ab-88bc-f10106750829"/><p id="104d6ad1-12fa-8091-9603-fad6e0b74d6d" class=""><strong>3. Test Cases:</strong></p><p id="104d6ad1-12fa-80ab-b67f-d55c0326e904" class=""><strong>Test Case 1: GET </strong><code><strong>/alerts/alerts</strong></code><strong> - Fetch All Alerts</strong></p><ul id="54e8fdf7-78a4-4e3a-a80c-9b5bbcd6a6c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong><p id="104d6ad1-12fa-80af-b309-f6d3a1567571" class="">Test the functionality of fetching all alerts from the system.</p></li></ul><ul id="104d6ad1-12fa-80a5-a4e6-c815324ecd76" class="bulleted-list"><li style="list-style-type:disc"><strong>Setup:</strong><ul id="4e8b1e22-7825-46bc-9e51-9b68065af2e6" class="bulleted-list"><li style="list-style-type:circle"><code>fetchAlerts</code> is mocked to return a list of alert objects.</li></ul></li></ul><ul id="351a36a8-dfe7-4c29-9462-054c890f9084" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Behavior:</strong><ul id="38120991-2b9a-4cb7-9d66-21318a8b0e31" class="bulleted-list"><li style="list-style-type:circle">The API should return a <code>200 OK</code> status with the alert data in the response body.</li></ul></li></ul><ul id="34a12377-3781-40d2-974f-3512fc1da740" class="bulleted-list"><li style="list-style-type:disc"><strong>Assertions:</strong><ul id="104d6ad1-12fa-8024-bdcb-e6f7b23e09b5" class="bulleted-list"><li style="list-style-type:circle">Status: <code>200 OK</code></li></ul><ul id="104d6ad1-12fa-80b4-a076-db4360713940" class="bulleted-list"><li style="list-style-type:circle">Response body:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-8079-8205-f88a5b7cfa8a" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">json
+Copy code
+[
+  { &quot;id&quot;: 1, &quot;type&quot;: &quot;Fire&quot;, &quot;status&quot;: &quot;active&quot;, &quot;affected_area&quot;: &quot;Building A&quot;, &quot;date&quot;: &quot;2024-09-16T10:00:00Z&quot; },
+  { &quot;id&quot;: 2, &quot;type&quot;: &quot;Flood&quot;, &quot;status&quot;: &quot;resolved&quot;, &quot;affected_area&quot;: &quot;Building B&quot;, &quot;date&quot;: &quot;2024-09-16T11:00:00Z&quot; }
+]
+
+</code></pre></li></ul><ul id="104d6ad1-12fa-80aa-9ecd-d2b1a6c94903" class="bulleted-list"><li style="list-style-type:circle"><code>fetchAlerts</code> should be called once.</li></ul></li></ul><hr id="d15326cb-8a29-4082-8f4f-27f5049d0e8d"/><p id="20be0594-61fe-4b0e-a094-f51e36c03d9c" class=""><strong>Test Case 2: POST </strong><code><strong>/alerts/alerts</strong></code><strong> - Create a New Alert</strong></p><ul id="104d6ad1-12fa-80d0-bfa5-fec9195670d6" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong><p id="104d6ad1-12fa-80c0-818c-d54a71106d45" class="">Test the functionality of creating a new alert.</p></li></ul><ul id="104d6ad1-12fa-80e1-b4f1-e775a00a8332" class="bulleted-list"><li style="list-style-type:disc"><strong>Setup:</strong><ul id="104d6ad1-12fa-808b-9718-cbf137b6ae81" class="bulleted-list"><li style="list-style-type:circle"><code>insertAlert</code> is mocked to simulate a successful insertion.</li></ul></li></ul><ul id="104d6ad1-12fa-80c2-b1dc-e5f0429cb619" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Behavior:</strong><ul id="104d6ad1-12fa-8036-95d3-e4f5a561cf34" class="bulleted-list"><li style="list-style-type:circle">The API should return a <code>200 OK</code> status with a confirmation message when a new alert is created.</li></ul></li></ul><ul id="104d6ad1-12fa-80e8-892f-c97855ff37a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Assertions:</strong><ul id="104d6ad1-12fa-80e9-a44a-c40970ed3192" class="bulleted-list"><li style="list-style-type:circle">Status: <code>200 OK</code></li></ul><ul id="104d6ad1-12fa-8033-a2f9-e84eb1d2b7d5" class="bulleted-list"><li style="list-style-type:circle">Response body:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-808d-8aed-cb3068b248c4" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">json
+Copy code
+{ &quot;type&quot;: &quot;Alert created successfully&quot; }
+
+</code></pre></li></ul><ul id="104d6ad1-12fa-80c7-b49a-d9da9169a54f" class="bulleted-list"><li style="list-style-type:circle"><code>insertAlert</code> should be called with the following parameters:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-8055-a244-e8dde3d0c70f" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">json
+Copy code
+{ &quot;type&quot;: &quot;Earthquake&quot;, &quot;status&quot;: &quot;active&quot;, &quot;affected_area&quot;: &quot;Building C&quot;, &quot;date&quot;: &quot;2024-09-16T12:00:00Z&quot; }
+
+</code></pre></li></ul></li></ul><hr id="104d6ad1-12fa-800a-8a46-c21e7b32d7cb"/><p id="fe6a688e-4b59-4084-83c0-c39e88cea5fd" class=""><strong>Test Case 3: PATCH </strong><code><strong>/alerts/:alertId/status</strong></code><strong> - Update Alert Status</strong></p><ul id="9f743496-b720-410a-96f8-6fb96f3fe5b5" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong><p id="104d6ad1-12fa-80eb-adac-f9e44bd8d929" class="">Test the functionality of updating an alert’s status.</p></li></ul><ul id="104d6ad1-12fa-80d9-9ec6-f9ce0c0b6125" class="bulleted-list"><li style="list-style-type:disc"><strong>Setup:</strong><ul id="8d226986-a10d-44a7-be37-05a906154c0d" class="bulleted-list"><li style="list-style-type:circle"><code>updateAlertStatus</code> is mocked to simulate a successful update.</li></ul></li></ul><ul id="104d6ad1-12fa-807c-a4a6-c2662bc50cc7" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Behavior:</strong><ul id="9e724e44-7b56-4581-ac38-7a49734d0eec" class="bulleted-list"><li style="list-style-type:circle">The API should return a <code>200 OK</code> status with a confirmation message when the alert status is updated.</li></ul></li></ul><ul id="104d6ad1-12fa-8001-a670-e41ffeaed926" class="bulleted-list"><li style="list-style-type:disc"><strong>Assertions:</strong><ul id="104d6ad1-12fa-806f-9ad2-f9dc983217b0" class="bulleted-list"><li style="list-style-type:circle">Status: <code>200 OK</code></li></ul><ul id="104d6ad1-12fa-8017-8ab2-f2fba2ff2105" class="bulleted-list"><li style="list-style-type:circle">Response body:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-8061-b2f5-d271e8ee0bec" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">json
+Copy code
+{ &quot;type&quot;: &quot;Alert status updated successfully&quot; }
+
+</code></pre></li></ul><ul id="104d6ad1-12fa-8013-a4b5-f67df1bb0352" class="bulleted-list"><li style="list-style-type:circle"><code>updateAlertStatus</code> should be called with the correct alert ID and updated status.</li></ul></li></ul><hr id="9664f2f4-f24e-4c9f-9e26-72db64b06de6"/><p id="104d6ad1-12fa-809c-bacf-cf7cc4e149e4" class=""><strong>4. General Observations:</strong></p><ul id="104d6ad1-12fa-80b8-822c-db79045c7fd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Error Handling:</strong><p id="104d6ad1-12fa-804b-8aa1-d264a4cfa1ac" class="">It’s recommended to add tests for error scenarios (e.g., invalid input or database failures) to ensure the API handles them gracefully.</p></li></ul><ul id="191a303c-3d4f-4f9c-b9f9-02cfad8aa946" class="bulleted-list"><li style="list-style-type:disc"><strong>Mocking and Isolation:</strong><p id="104d6ad1-12fa-8014-b5c3-f22eaa801249" class="">Controller functions were properly mocked to isolate the API behavior from database interactions, making the tests focus solely on API functionality.</p></li></ul><ul id="104d6ad1-12fa-80cd-af2b-c6ab27b57710" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Coverage:</strong><p id="72cf9d16-94a3-4ebf-9e0e-8224f9cf611b" class="">These tests cover basic functionality. Additional tests for edge cases (e.g., invalid data) are recommended for full coverage.</p></li></ul><hr id="104d6ad1-12fa-8053-b905-cdb0a4647b78"/><p id="c9bf1696-c5c6-4bb7-97e3-1341181f0ef5" class=""><strong>5. Conclusion:</strong></p><p id="104d6ad1-12fa-80ec-8e40-e7776aed16ef" class="">The integration tests successfully verify the core features of the Safety Alerts API, ensuring the correct functionality of fetching, creating, and updating alerts. As the API grows, further tests can be implemented to ensure the robustness of all its features.</p></details></li></ul><ul id="104d6ad1-12fa-804a-8565-c24ddf19af04" class="toggle"><li><details open=""><summary><strong><span style="border-bottom:0.05em solid">Incidents Report Tests</span></strong></summary><h3 id="104d6ad1-12fa-804f-a04c-de2597727499" class="">Overview</h3><p id="104d6ad1-12fa-8005-b233-e6fbb9c22a90" class="">This test suite is designed to verify the integration of the Incident-related routes in an Express application. The code makes use of <code>supertest</code> to simulate HTTP requests and <code>jest</code> to mock database and controller interactions. The test cases cover GET, PATCH, and POST requests for incident-related functionality, such as fetching incidents, updating an incident’s status, and reporting new incidents with photo uploads.</p><h3 id="104d6ad1-12fa-80a9-be63-c33e53bccee2" class="">Dependencies</h3><ul id="104d6ad1-12fa-8025-a9d1-f6daefccd3b0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>express</strong></code>: The Express framework for handling routes.</li></ul><ul id="104d6ad1-12fa-80b0-924f-c3fd5caf4527" class="bulleted-list"><li style="list-style-type:disc"><code><strong>body-parser</strong></code>: Middleware for parsing JSON request bodies.</li></ul><ul id="355652a8-1458-4af1-a65a-223d6c7005c3" class="bulleted-list"><li style="list-style-type:disc"><code><strong>supertest</strong></code>: Library for testing HTTP requests.</li></ul><ul id="104d6ad1-12fa-80ce-8c13-d7842042d2ef" class="bulleted-list"><li style="list-style-type:disc"><code><strong>jest</strong></code>: Testing framework used to mock functions and handle assertions.</li></ul><ul id="104d6ad1-12fa-802b-992b-ea2fcf2932f0" class="bulleted-list"><li style="list-style-type:disc"><code><strong>firebase/storage</strong></code>: Used to mock Firebase&#x27;s photo upload functionalities.</li></ul><ul id="43e38b63-0c19-4c2f-8c05-4465f1ef526e" class="bulleted-list"><li style="list-style-type:disc"><strong>Database Mock (</strong><code><strong>db</strong></code><strong>)</strong>: The database module is mocked to simulate database interactions.</li></ul><h3 id="104d6ad1-12fa-80a1-8cf6-de3fb58cd83b" class="">Test Cases</h3><h3 id="104d6ad1-12fa-8047-8dcb-cb136ac2f96c" class="">1. <strong>GET /incidents/all-incidents</strong></h3><ul id="9ff74e6f-b356-4ee3-825f-5d8cd813ffd7" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: To verify that the API correctly fetches all incident records from the database.</li></ul><ul id="104d6ad1-12fa-8091-88e3-efcd98790f06" class="bulleted-list"><li style="list-style-type:disc"><strong>Preconditions</strong>:<ul id="104d6ad1-12fa-8024-bc44-e4e1067f04b7" class="bulleted-list"><li style="list-style-type:circle">The <code>IncidentController.getAllIncidents</code> method is mocked to return a predefined list of incidents.</li></ul><ul id="104d6ad1-12fa-8075-9f5c-ee4b66df85aa" class="bulleted-list"><li style="list-style-type:circle">The database is set up with an empty <code>incidents</code> table before each test.</li></ul></li></ul><ul id="104d6ad1-12fa-8013-9be8-f3e9fe992a20" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Procedure</strong>:<ul id="104d6ad1-12fa-80f4-966b-c9156281c04d" class="bulleted-list"><li style="list-style-type:circle">A <code>GET</code> request is made to the <code>/incidents/all-incidents</code> endpoint.</li></ul></li></ul><ul id="104d6ad1-12fa-8014-8267-cf599853c7dd" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Results</strong>:<ul id="104d6ad1-12fa-80ab-a009-d59242ff0b10" class="bulleted-list"><li style="list-style-type:circle">The response status should be <code>200</code>.</li></ul><ul id="44952d49-6882-4080-acb3-d6d200891f79" class="bulleted-list"><li style="list-style-type:circle">The response body should contain the mock incidents provided by <code>IncidentController.getAllIncidents</code>.</li></ul></li></ul><h3 id="104d6ad1-12fa-804f-8c0f-dc9cb3e639e7" class="">Mock Data:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="65c0fdef-632e-4758-8486-330ff5d29538" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">[
+  { &quot;id&quot;: 1, &quot;type&quot;: &quot;Medical Service&quot;, &quot;description&quot;: &quot;Fire&quot;, &quot;active&quot;: 1, &quot;date&quot;: &quot;2024-09-13T00:00:00Z&quot; },
+  { &quot;id&quot;: 2, &quot;type&quot;: &quot;Weather Service&quot;, &quot;description&quot;: &quot;Flood&quot;, &quot;active&quot;: 0, &quot;date&quot;: &quot;2024-09-13T00:00:00Z&quot; }
+}</code></pre><p id="9068e1ed-7ba3-4a86-8901-4f049f21320e" class="">
+</p><h3 id="104d6ad1-12fa-80b5-92fd-ee18d55825f8" class="">2. <strong>PATCH /incidents/:id/status</strong></h3><ul id="104d6ad1-12fa-8083-8c08-e267c87f4ca3" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: To ensure that the status of an incident can be updated successfully.</li></ul><ul id="104d6ad1-12fa-808b-8b0e-c4101bd0f59a" class="bulleted-list"><li style="list-style-type:disc"><strong>Preconditions</strong>:<ul id="104d6ad1-12fa-80cc-a071-ff8c79c7c8a2" class="bulleted-list"><li style="list-style-type:circle">The <code>IncidentController.UpdateSafetyIncidents</code> method is mocked to return the updated incident status.</li></ul><ul id="104d6ad1-12fa-809a-970b-c231b3e34f76" class="bulleted-list"><li style="list-style-type:circle">The <code>id</code> and <code>active</code> status are passed as parameters.</li></ul></li></ul><ul id="104d6ad1-12fa-8003-8264-fc7fd297333d" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Procedure</strong>:<ul id="104d6ad1-12fa-8072-b021-f013b886edfe" class="bulleted-list"><li style="list-style-type:circle">A <code>PATCH</code> request is sent to the <code>/incidents/:id/status</code> endpoint, where <code>id</code> is the incident ID, and the new status is passed in the request body.</li></ul></li></ul><ul id="6b57219b-f095-4085-a573-de160d46efc8" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Results</strong>:<ul id="104d6ad1-12fa-8072-bd42-d8c5adc7f85f" class="bulleted-list"><li style="list-style-type:circle">The response status should be <code>200</code>.</li></ul><ul id="220b3b12-06c7-4fc8-9654-efcf6f066ed3" class="bulleted-list"><li style="list-style-type:circle">The response body should contain the incident ID and the updated active status.</li></ul></li></ul><h3 id="104d6ad1-12fa-807f-a3df-c02386666f2c" class="">Mock Data:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="40348652-a046-4a43-b68b-8147069a54a6" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;id&quot;: 1,
+  &quot;active&quot;: 0
+}</code></pre><p id="3a71596e-afcf-494f-94fb-e0d9597388ae" class="">
+</p><h3 id="104d6ad1-12fa-8098-8201-f2b57d29a4b4" class="">3. <strong>POST /incidents/report-incidents</strong></h3><ul id="104d6ad1-12fa-80c3-819d-ecff9e62ce80" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose</strong>: To validate that a new incident can be reported, including uploading a photo and storing the incident data.</li></ul><ul id="104d6ad1-12fa-809a-9d05-d6785d360dce" class="bulleted-list"><li style="list-style-type:disc"><strong>Preconditions</strong>:<ul id="104d6ad1-12fa-800f-84a1-fb0d62a11793" class="bulleted-list"><li style="list-style-type:circle">The <code>IncidentController.ReportSafetyIncidents</code> method is mocked to return a success message (&quot;Data Inserted&quot;).</li></ul><ul id="104d6ad1-12fa-80a5-a147-cdb6005720b4" class="bulleted-list"><li style="list-style-type:circle">Firebase&#x27;s storage methods are mocked to simulate the file upload process and return a mock URL.</li></ul></li></ul><ul id="104d6ad1-12fa-80db-b7be-e2bfb2a48558" class="bulleted-list"><li style="list-style-type:disc"><strong>Test Procedure</strong>:<ul id="104d6ad1-12fa-800b-9da3-d5b4a990d769" class="bulleted-list"><li style="list-style-type:circle">A <code>POST</code> request is sent to the <code>/incidents/report-incidents</code> endpoint with a file attachment (the incident photo) and form data containing the incident details.</li></ul></li></ul><ul id="104d6ad1-12fa-80be-9500-f61bd314d79c" class="bulleted-list"><li style="list-style-type:disc"><strong>Expected Results</strong>:<ul id="104d6ad1-12fa-80f9-a3c1-c283c92a4215" class="bulleted-list"><li style="list-style-type:circle">The response status should be <code>200</code>.</li></ul><ul id="2f575a24-1916-4ba1-b054-3f981288311f" class="bulleted-list"><li style="list-style-type:circle">The response body should return the success message (&quot;Data Inserted&quot;).</li></ul></li></ul><h3 id="104d6ad1-12fa-8020-a6f3-daae5c7dd747" class="">Mock Data:</h3><ul id="d0ed1b84-91e6-4c88-8f21-b655c43f5c95" class="bulleted-list"><li style="list-style-type:disc"><strong>Photo URL</strong>: <code>&quot;https://campussafety.com/photo.jpg&quot;</code></li></ul><ul id="104d6ad1-12fa-80c8-8e02-cd13e9787f1a" class="bulleted-list"><li style="list-style-type:disc"><strong>Incident Data</strong>:<ul id="104d6ad1-12fa-80b4-8177-fd819a57dc97" class="bulleted-list"><li style="list-style-type:circle"></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="104d6ad1-12fa-803a-88a7-ea8ff2ad2dbf" class="code"><code class="language-JSON" style="white-space:pre-wrap;word-break:break-all">{
+  &quot;description&quot;: &quot;Test incident&quot;,
+  &quot;latitude&quot;: 123.45,
+  &quot;longitude&quot;: 67.89,
+  &quot;type&quot;: &quot;Test service&quot;
+}</code></pre><h3 id="e0f53113-6702-44c1-a254-5fb2ca2776ae" class="">Database Interactions</h3><p id="929e0a3a-4f69-43a0-b65d-cfce667f37df" class="">The database is mocked for testing purposes. The following interactions occur:</p><ol type="1" id="8939e315-1948-4eb5-8861-caed2c8b1c8d" class="numbered-list" start="1"><li><strong>Table Setup</strong>: Before all tests, a table for <code>incidents</code> is created if it doesn&#x27;t exist.</li></ol><ol type="1" id="b3b95eae-7def-44aa-8c6b-8e3074e5fd20" class="numbered-list" start="2"><li><strong>Data Cleanup</strong>: The <code>incidents</code> table is cleared before each test to ensure tests are isolated.</li></ol><ol type="1" id="76b49e80-b8cf-4842-9fc3-b52958466187" class="numbered-list" start="3"><li><strong>Table Teardown</strong>: After all tests are completed, the <code>incidents</code> table is dropped, and the database connection is closed.</li></ol><h3 id="21738f18-d0f4-4cef-a1bb-842f2cb1b132" class="">Mocking Details</h3><ul id="3390a37c-a181-4ef8-ae62-57ff5014ca4f" class="bulleted-list"><li style="list-style-type:circle"><code><strong>IncidentController</strong></code><strong> Mocking</strong>: All methods within <code>IncidentController</code> are mocked using <code>jest.mock</code>, ensuring that no real database queries or controller logic is invoked during tests.</li></ul><ul id="c3061ad5-2233-49ba-9d20-14cc5a68535e" class="bulleted-list"><li style="list-style-type:circle"><code><strong>Firebase Storage</strong></code><strong> Mocking</strong>: Firebase&#x27;s file upload functionality is mocked to return predefined URLs for testing the photo upload process.</li></ul><h3 id="370c9a1c-999f-46b4-9c2f-ca9ebdeb7607" class="">Console Error Suppression</h3><p id="a28130d5-9ef8-477e-aa59-9c415dc47abe" class="">A spy (<code>consoleErrorSpy</code>) is used to suppress <code>console.error</code> logs during tests, ensuring that errors do not clutter the test output. This spy is restored after all tests.</p></li></ul></details></li></ul><p id="104d6ad1-12fa-8021-8f91-e545efadc886" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

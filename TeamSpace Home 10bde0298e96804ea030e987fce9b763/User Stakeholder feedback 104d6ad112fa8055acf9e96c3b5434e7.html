@@ -1,0 +1,693 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>User/Stakeholder feedback</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="104d6ad1-12fa-8055-acf9-e96c3b5434e7" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/microphone_orange.svg"/></div><h1 class="page-title">User/Stakeholder feedback</h1><p class="page-description"></p></header><div class="page-body"><p id="104d6ad1-12fa-8092-9e5a-e375fead9cac" class="">
+</p><p id="104d6ad1-12fa-80ad-a6ee-d10567344a82" class="">
+</p><p id="104d6ad1-12fa-80a9-bbe5-db687700c2a6" class="">
+</p><p id="e6b1d78d-af6d-4fc9-a5c5-da812ee4ce2e" class="">
+</p><p id="104d6ad1-12fa-80a6-9594-f96741e2f612" class=""><strong>User Feedback - Campus Safety App (Sibusiso, 17/09/2024)</strong></p><ul id="104d6ad1-12fa-80a3-80b4-cf4a204b7b37" class="bulleted-list"><li style="list-style-type:disc"><strong>Who controls the markers?</strong><ul id="104d6ad1-12fa-8063-b1de-dadc0ad4038d" class="bulleted-list"><li style="list-style-type:circle">Sibusiso inquired about who controls the markers on the map, referencing how incidents and hotspots are managed.</li></ul></li></ul><ul id="104d6ad1-12fa-8036-8c56-cfd30c6d5c95" class="bulleted-list"><li style="list-style-type:disc"><strong>How do the hotspots come about? Do people report incidents?</strong><ul id="104d6ad1-12fa-80e7-b639-ef4352875654" class="bulleted-list"><li style="list-style-type:circle">He asked if the app relies on user-reported incidents or if there’s another process for creating hotspots.</li></ul></li></ul><ul id="104d6ad1-12fa-8003-8ab0-fe50dae6bd86" class="bulleted-list"><li style="list-style-type:disc"><strong>How do you prevent someone from spamming?</strong><ul id="104d6ad1-12fa-804c-a303-ca8565f131af" class="bulleted-list"><li style="list-style-type:circle">Concerned about spamming within the incident reporting feature, he asked how the app protects against abuse by malicious users.</li></ul></li></ul><ul id="4014be90-de40-42d7-a59d-47fe7fafb0ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Feedback on Interface:</strong><ul id="104d6ad1-12fa-8040-b21f-fbe2d871c5be" class="bulleted-list"><li style="list-style-type:circle">Sibusiso mentioned that he liked the simplicity of the app&#x27;s interface, appreciating the ease of use.</li></ul></li></ul><ul id="104d6ad1-12fa-803a-94d0-fc896244609a" class="bulleted-list"><li style="list-style-type:disc"><strong>Protecting Against Malicious Users:</strong><ul id="9d36a631-21ca-4714-995c-362c3d687a5c" class="bulleted-list"><li style="list-style-type:circle">He suggested that the app should include protections against malicious users, such as bots that could flood the system with alerts or requests.</li></ul></li></ul><ul id="104d6ad1-12fa-80c5-9558-c903827a5980" class="bulleted-list"><li style="list-style-type:disc"><strong>Verification of Alerts:</strong><ul id="104d6ad1-12fa-809a-94f2-fe07f5b9d8ae" class="bulleted-list"><li style="list-style-type:circle">Sibusiso asked about how the authenticity of alerts and incidents is verified. Martin responded that users can post pictures on the platform as a way to verify incidents.</li></ul></li></ul><p id="104d6ad1-12fa-8080-a83f-f36850708a2e" class="">
+</p><h3 id="104d6ad1-12fa-80d5-89f3-d1e1d609a646" class="">Summary of Stakeholder Feedback and Integration Discussions:</h3><p id="104d6ad1-12fa-804c-8ada-eb4786202963" class=""><strong>Stakeholder: Kabelo</strong></p><ul id="104d6ad1-12fa-80ac-be1e-f3159b6e71a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Inquiry</strong>: Kabelo reached out to integrate a panic button feature into their application and requested more details on APIs, SDKs, and security guidelines.</li></ul><ul id="104d6ad1-12fa-80e1-a4c6-c0ed12e24114" class="bulleted-list"><li style="list-style-type:disc"><strong>Response</strong>: Luke mentioned that the panic button functionality was still in development, and a document detailing API endpoints had been shared but might change. Security specifics were not yet available.</li></ul><ul id="104d6ad1-12fa-8055-9b85-c4af35ca937f" class="bulleted-list"><li style="list-style-type:disc"><strong>Follow-up</strong>: Kabelo later sought clarification on the difference between emergency alerts and incident reporting. Luke explained that the <strong>Alerts API</strong> broadcasts real-time emergency threats, while the <strong>Incidents API</strong> tracks and reports specific safety incidents.</li></ul><ul id="104d6ad1-12fa-805b-aa7f-f1701d0d3837" class="bulleted-list"><li style="list-style-type:disc"><strong>Outcome</strong>: Kabelo showed interest in using the Alerts API for events after understanding that alerts are used for immediate threats, while incidents cover follow-ups.</li></ul><p id="104d6ad1-12fa-80e0-b2b4-d57b0010dc6a" class=""><strong>Stakeholder: Armando</strong></p><ul id="104d6ad1-12fa-806c-8cb3-f562d27e2b52" class="bulleted-list"><li style="list-style-type:disc"><strong>Inquiry</strong>: Armando asked for API specifications to start integrating a safety reporting system with their venue system.</li></ul><ul id="104d6ad1-12fa-80e2-80d9-d91340136d40" class="bulleted-list"><li style="list-style-type:disc"><strong>Response</strong>: Luke directed Armando to a document already shared in a group chat, noting that the document was provisional but provided a general idea.</li></ul><ul id="104d6ad1-12fa-80ca-a012-c37e75de301f" class="bulleted-list"><li style="list-style-type:disc"><strong>Outcome</strong>: Armando acknowledged and planned to inform his group.</li></ul><p id="104d6ad1-12fa-807d-9b07-e794adcb142a" class=""><strong>Stakeholder: Kat</strong></p><ul id="104d6ad1-12fa-80f4-b5c6-fc3d1d42a287" class="bulleted-list"><li style="list-style-type:disc"><strong>Inquiry</strong>: Kat requested documentation for the location API.</li></ul><ul id="55d8e0e7-0bcb-4d14-9207-8b8cc03888c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Response</strong>: Luke confirmed the documentation had been shared, though subject to potential changes.</li></ul><ul id="104d6ad1-12fa-8031-9bb5-e6c69e1e7d1b" class="bulleted-list"><li style="list-style-type:disc"><strong>Outcome</strong>: Kat accepted the response.</li></ul><p id="33f74b60-6915-4af5-8845-495cbaef59a8" class="">
+</p><p id="104d6ad1-12fa-80f2-aea1-f3335a720086" class="">Tutor feedback:</p><p id="104d6ad1-12fa-8038-98e6-f682ff7ba09e" class="">try signal whether its sos or not, how to differentiate between SOS and detailed report</p><p id="64053829-b09d-49c0-8e7f-faeeab9ea8d3" class="">
+</p><p id="104d6ad1-12fa-808e-aa04-ca8ac5e258a0" class=""><strong>Stakeholder: Cameron</strong></p><ul id="7b7aac7a-8cba-4f31-b39f-5eea0d9290b7" class="bulleted-list"><li style="list-style-type:disc">Inquiry:<strong> Cameron was a user who was asked to QA-test the app. </strong>Thoroughly enjoyed the application. Gave feedback on UI/UX to integrate<ul id="d6b743f2-1bbb-4d7e-b54e-03924e73300d" class="bulleted-list"><li style="list-style-type:circle">Asked for text to be much smaller</li></ul><ul id="104d6ad1-12fa-8098-a2f3-d014b3793716" class="bulleted-list"><li style="list-style-type:circle">Asked for icons to be smaller</li></ul><ul id="104d6ad1-12fa-80c0-b0c0-e122fb0e024c" class="bulleted-list"><li style="list-style-type:circle">Asked for button sizes to be wider</li></ul><ul id="0bc2b055-ae0a-4d0f-8347-560c307378a6" class="bulleted-list"><li style="list-style-type:circle">Asked for some colour changes</li></ul><ul id="104d6ad1-12fa-8000-988f-c3a1bfce6685" class="bulleted-list"><li style="list-style-type:circle">Asked for map to be more visually appealing</li></ul><ul id="898152e6-fdfe-486e-a206-b00c1b878e9f" class="bulleted-list"><li style="list-style-type:circle">Asked for a “pin” or marker to be displayed to show the type of incident on the map</li></ul></li></ul><ul id="104d6ad1-12fa-8012-85ca-ddbaa4cea1ba" class="bulleted-list"><li style="list-style-type:disc">Response: Mitchell explained the reasoning behind the current ui and ux and agreed on some changes</li></ul><ul id="104d6ad1-12fa-80aa-9499-d8612df14884" class="bulleted-list"><li style="list-style-type:disc">Outcome: Cameron was happy with the application </li></ul><p id="64b54a33-5395-4d55-b0fc-7db777623d42" class=""><strong>Stakeholder: Roz</strong></p><ul id="104d6ad1-12fa-8077-9b81-db1c0108e1e6" class="bulleted-list"><li style="list-style-type:disc">Inquiry:<strong> Roz was a user who was asked to QA-test the app. Saw good potential in the application and enjoyed the ease of use</strong></li></ul><ul id="104d6ad1-12fa-8046-8129-fb8a2e7a5a1f" class="bulleted-list"><li style="list-style-type:disc">Response: -</li></ul><ul id="5a5bbba2-e5ee-4e2a-ae6d-188c2ed72a99" class="bulleted-list"><li style="list-style-type:disc">Outcome: Roz was happy with the workings and app ease</li></ul><p id="104d6ad1-12fa-80d5-b306-f4019fc5bd40" class=""> </p><p id="104d6ad1-12fa-804e-8a05-c70dd7c89fbc" class=""><strong>Stakeholder: Ash</strong></p><ul id="104d6ad1-12fa-803c-977a-feb0822f0f8a" class="bulleted-list"><li style="list-style-type:disc">Inquiry:<strong> Ashley was a crucial involvement in many app stages:</strong><ul id="104d6ad1-12fa-8014-bafe-f18c9344d1be" class="bulleted-list"><li style="list-style-type:circle">Information about base main page: Gave input on component layout<ul id="104d6ad1-12fa-8076-a6f5-ca213f5b378c" class="bulleted-list"><li style="list-style-type:square">Asked for navbar to be smaller</li></ul><ul id="104d6ad1-12fa-8006-8a89-df672a0d2872" class="bulleted-list"><li style="list-style-type:square">Asked for wider area of map</li></ul></li></ul><ul id="104d6ad1-12fa-8061-b17e-f70dd8d60dbe" class="bulleted-list"><li style="list-style-type:circle">Information about map ui: Gave input on map structure and presentation</li></ul><ul id="d5eeb32b-fd83-414a-ae7b-302b30217b25" class="bulleted-list"><li style="list-style-type:circle">Information about ease of access: Gave input on navigation and ease</li></ul><ul id="104d6ad1-12fa-803f-ad2b-ed0590d4072c" class="bulleted-list"><li style="list-style-type:circle">Information about clutter: Gave input on spaciality of app</li></ul></li></ul><ul id="104d6ad1-12fa-806c-98d8-f3aae1729686" class="bulleted-list"><li style="list-style-type:disc">Response: Mitchell decided all responses were valid and agreed to integrate</li></ul><ul id="104d6ad1-12fa-805e-ac7c-d267ebe37d55" class="bulleted-list"><li style="list-style-type:disc">Outcome: Ashley was very satisfied with the outcome</li></ul><p id="a14c413b-a595-4190-b314-e9f7d8d397e9" class="">
+</p><p id="d152d9da-f2e4-4232-9a65-cf687844b4f5" class=""><strong>Stakeholder : Aesha</strong><br/><br/></p><ul id="104d6ad1-12fa-80fa-9ff0-d0075e10945d" class="bulleted-list"><li style="list-style-type:disc">Inquiry - Anand asks Aesha if the login page was visually appealing enough<br/><br/></li></ul><ul id="104d6ad1-12fa-80d0-8c1f-c3c2f64f3d9c" class="bulleted-list"><li style="list-style-type:disc">Response - No it is not. Would like for it to be more modern and responsive. A better logo and color scheme would suffice as well as a small animation.<br/><br/></li></ul><ul id="104d6ad1-12fa-80da-8593-fe50988d4689" class="bulleted-list"><li style="list-style-type:disc">Outcome - Anand incorporated this feedback. A new vector format logo was created. A new color scheme which was more welcoming. Modified the logos and input fields.</li></ul><hr id="1069b6ae-127b-420f-b1e2-2e65432d34e2"/><p id="104d6ad1-12fa-803e-9264-d71f553949cb" class="">Across all discussions, stakeholders requested API details and clarity on how features like incident reporting, alerts, and the panic button would integrate with their systems. Luke provided preliminary documentation and clarified functionality where needed, managing expectations around ongoing development and changes.</p><p id="104d6ad1-12fa-804f-8a07-ea0254b31c48" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

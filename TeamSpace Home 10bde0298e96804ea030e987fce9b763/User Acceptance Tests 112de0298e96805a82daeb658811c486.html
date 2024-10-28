@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>User Acceptance Tests</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="112de029-8e96-805a-82da-eb658811c486" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/vitruvian-man_blue.svg"/></div><h1 class="page-title">User Acceptance Tests</h1><p class="page-description"></p></header><div class="page-body"><ul id="112de029-8e96-801b-ba2f-db7ef18998b4" class="toggle"><li><details open=""><summary><strong>User Acceptance Tests</strong></summary><ul id="112de029-8e96-8051-9c66-dc25d4b8c8d5" class="toggle"><li><details open=""><summary>Incident Reporting Test</summary><ul id="112de029-8e96-80ae-b84e-d72486e370b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged into the app and is on the incident reporting	page.</li></ul><ul id="112de029-8e96-80fc-8508-e402cb652639" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user selects an emergency, enters the description	and upload a photo.</li></ul><ul id="112de029-8e96-80b6-89a6-f3393ebe94b2" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The incident is successfully reported, and a confirmation message is	displayed.</li></ul></details></li></ul><ul id="112de029-8e96-8034-9ff1-fcc17a657f90" class="toggle"><li><details open=""><summary>Notification Test</summary><p id="112de029-8e96-80e9-93e1-cc441a1f24e5" class="">
+</p><ul id="112de029-8e96-8065-89cd-f94541b7dff7" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	An incident has been reported by another user.</li></ul><ul id="112de029-8e96-80d6-b467-fe0a40e1a4d2" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user is logged into the app.</li></ul><ul id="112de029-8e96-80fc-80ed-dd8d2e8ffbad" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The user receives a real-time notification with the incident&#x27;s	location and emergency type.</li></ul></details></li></ul><ul id="112de029-8e96-805b-b660-c5da6468ba4e" class="toggle"><li><details open=""><summary>I<strong>ncident List Display Test</strong></summary><ul id="112de029-8e96-8083-b9ba-e3a5d4ca2391" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	An incident has been reported by another user.</li></ul><ul id="112de029-8e96-80b8-a718-eaeeb1d4934b" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user navigates to the incidents page.</li></ul><ul id="112de029-8e96-800a-9ac9-e243a4699ccb" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The new incident appears on the list with the location and type of	emergency.</li></ul></details></li></ul><ul id="112de029-8e96-8066-aa76-f74e3740fe2d" class="toggle"><li><details open=""><summary>Safety Resources Navigation Test</summary><ul id="112de029-8e96-8096-bd7c-d848dcdc6055" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged into the app.</li></ul><ul id="112de029-8e96-80ae-aa15-f1597de06443" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user navigates to the &quot;Safety Resources&quot; section and	selects a topic.</li></ul><ul id="112de029-8e96-801b-9195-cef2f33a1485" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The app displays the relevant safety information for the selected	topic.</li></ul></details></li></ul><ul id="112de029-8e96-80b5-a157-cf5c97922cf4" class="toggle"><li><details open=""><summary>First Aid Information Navigation Test</summary><ul id="112de029-8e96-800c-b34d-cabe7c86b680" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is on the First	Aid Information page.</li></ul><ul id="112de029-8e96-8078-bafb-d04f08fe20fb" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user selects	available first aid	information (e.g.,“CPR”).</li></ul><ul id="112de029-8e96-80dd-811b-f2db2f483a5d" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The app displays steps	related to the first aid selected.</li></ul></details></li></ul><ul id="112de029-8e96-8034-8eb7-d22cb79960ba" class="toggle"><li><details open=""><summary>Real-Time Incident Notification Delay Test</summary><ul id="112de029-8e96-80cf-a2ec-e5c4744f4f80" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	Multiple users are logged into the app.</li></ul><ul id="112de029-8e96-8012-adf9-ec452e7962f4" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	One user reports an incident.</li></ul><ul id="112de029-8e96-80c8-ab1c-fc0791c54fe4" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	Other users receive a notification in real time without delay.</li></ul></details></li></ul><ul id="112de029-8e96-8047-b82e-c212cda8ff7d" class="toggle"><li><details open=""><summary>Incident Details View Test</summary><ul id="112de029-8e96-8038-995f-d5ec6e9db396" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	An incident has been reported and is listed on the incidents page.</li></ul><ul id="112de029-8e96-80e4-a8e4-f44fbd7eef23" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user clicks on an incident.</li></ul><ul id="112de029-8e96-803e-a49c-eb9c0408b7be" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The app displays the detailed information of the incident, including	the location, type of emergency, and time.</li></ul></details></li></ul><ul id="112de029-8e96-800c-b8d0-e0129ea4733f" class="toggle"><li><details open=""><summary>Walk-home Assistance Test</summary><ul id="112de029-8e96-8032-9449-e71a6822a8d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged in and on the home page.</li></ul><ul id="112de029-8e96-8019-8c12-f46a8ebf0be8" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user navigates to the Walk-home Assistance page, selects	&quot;Schedule a ride,&quot; enters the time for the ride, and	chooses a residence from the list.</li></ul><ul id="112de029-8e96-80fc-a28a-d6a4ac429614" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The user is able to successfully schedule a ride to their chosen	residence.</li></ul></details></li></ul><ul id="112de029-8e96-804d-9b45-dac2499be0b6" class="toggle"><li><details open=""><summary>Make an Emergency Call Test</summary><ul id="112de029-8e96-8043-9454-fead453e7d24" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged in and on the home page.</li></ul><ul id="112de029-8e96-802f-8fa7-d788fb56ac00" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user presses the “Emergency Call” button, enters the phone	number they want to call, and initiates the call.</li></ul><ul id="112de029-8e96-8095-a846-f7b215095cbd" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The user is able to successfully make an emergency call.</li></ul></details></li></ul><ul id="112de029-8e96-805b-a19b-dd90b9c02517" class="toggle"><li><details open=""><summary>Emergency Information( Access cellphone numbers) Test</summary><ul id="112de029-8e96-8081-a2fd-fed17115daea" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged in and on the home page.</li></ul><ul id="112de029-8e96-80f2-bc4c-d5589923f105" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user navigates to the Emergency Information page, presses the	“Wits Contacts” button, and views a list of cellphone numbers.</li></ul><ul id="112de029-8e96-8077-9117-f34f86c502ce" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	A list of cellphone numbers for Wits Protection Service is	displayed.</li></ul></details></li></ul><ul id="112de029-8e96-808d-be60-d6cdc4025f4a" class="toggle"><li><details open=""><summary>Emergency Information (Make a call) Test</summary><ul id="112de029-8e96-8050-a9ed-ddb73b6296a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Given:</strong>	The user is logged in and on the Emergency Information page.</li></ul><ul id="112de029-8e96-8076-9f33-de2e63e01d36" class="bulleted-list"><li style="list-style-type:disc"><strong>When:</strong>	The user presses the “External Contacts” button, views a list of	cellphone numbers, and presses &quot;Call&quot; on one of the	numbers.</li></ul><ul id="112de029-8e96-809f-a4ee-dc67d3d1e45e" class="bulleted-list"><li style="list-style-type:disc"><strong>Then:</strong>	The user is able to make a call to the selected external contact.</li></ul></details></li></ul></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
